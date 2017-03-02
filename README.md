@@ -16,7 +16,7 @@ bundle install
 * Create local postgres database
 ```
 psql -d postgres
-create database rfq_parts_development
+create database rfq_parts_development;
 \q
 ```
 * Migrate the database
