@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @part.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @part.image_url %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @part.manufacturer %>
+</p>
+
+<p>
+  <strong>Part number:</strong>
+  <%= @part.part_number %>
+</p>
+
+<p>
+  <strong>Part type:</strong>
+  <%= @part.part_type %>
+</p>
+
+<p>
+  <strong>Quantity in stock:</strong>
+  <%= @part.quantity_in_stock %>
+</p>
+
+<p>
+  <strong>Specs:</strong>
+  <%= @part.specs %>
+</p>
+
+<%= link_to 'Edit', edit_part_path(@part) %> |
+<%= link_to 'Back', parts_path %>
