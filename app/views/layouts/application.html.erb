@@ -10,7 +10,7 @@
 
   <body>
     <div id='main-container'>
-      <div class='logout-container' style='float:right;'>
+      <div class='logout-container' style='position:absolute;right:0;'>
         <%= link_to('Logout', destroy_user_session_path, :method => :delete) if current_user %>
       </div>
       <%= yield %>
