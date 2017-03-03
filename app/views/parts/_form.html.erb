@@ -1,47 +1,65 @@
-<%= form_for(part) do |f| %>
-  <% if part.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(part.errors.count, "error") %> prohibited this part from being saved:</h2>
+<div class="col-lg-6">
+  <div class="well bs-component">
+    <%= form_for(part, html: {class: 'form-horizontal'}) do |f| %>
+      <% if part.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(part.errors.count, "error") %> prohibited this part from being saved:</h2>
 
-      <ul>
-      <% part.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% part.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <fieldset>
+        <div class="form-group">
+          <%= f.label :part_number, {class: 'col-lg-3 control-label'} %>
+          <div class='col-lg-9'>
+            <%= f.text_field :part_number, {class: 'form-control'} %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :part_number %>
-    <%= f.text_field :part_number %>
-  </div>
+        <div class="form-group">
+          <%= f.label :description, {class: 'col-lg-3 control-label'} %>
+          <div class='col-lg-9'>
+            <%= f.text_area :description, {class: 'form-control'} %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+        <div class="form-group">
+          <%= f.label :image_url, {class: 'col-lg-3 control-label'} %>
+          <div class='col-lg-9'>
+            <%= f.text_field :image_url, {class: 'form-control'} %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :image_url %>
-    <%= f.text_field :image_url %>
-  </div>
+        <div class="form-group">
+          <%= f.label :manufacturer, {class: 'col-lg-3 control-label'} %>
+          <div class='col-lg-9'>
+            <%= f.text_field :manufacturer, {class: 'form-control'} %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :manufacturer %>
-    <%= f.text_field :manufacturer %>
-  </div>
+        <div class="form-group">
+          <%= f.label :quantity_in_stock, {class: 'col-lg-3 control-label'} %>
+          <div class='col-lg-9'>
+            <%= f.text_field :quantity_in_stock, {class: 'form-control'} %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :quantity_in_stock %>
-    <%= f.text_field :quantity_in_stock %>
-  </div>
+        <div class="form-group">
+          <%= f.label :specs, {class: 'col-lg-3 control-label'} %>
+          <div class='col-lg-9'>
+            <%= f.text_area :specs, {class: 'form-control', style: 'height:300px;'} %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :specs %>
-    <%= f.text_area :specs %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit %>
+      <div class="actions">
+        <%= f.submit "Submit", {class: 'btn btn-primary', style: 'float:right;'} %>
+        <%= link_to 'Cancel', parts_path, {class: 'btn btn-default', style: 'float:right;margin-right: 5px; color: white;'} %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
