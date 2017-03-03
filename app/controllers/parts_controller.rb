@@ -4,7 +4,7 @@ class PartsController < ApplicationController
   # GET /parts
   # GET /parts.json
   def index
-    @parts = Part.all
+    @parts = Part.search(params[:search]).paginate(:page => params[:page], :per_page => 30)
   end
 
   # GET /parts/1

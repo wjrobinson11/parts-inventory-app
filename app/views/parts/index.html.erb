@@ -1,7 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Parts</h1>
-
+<div style='text-align:center;' class='parts-inventory-header'>
+  <h1>Parts Inventory</h1>
+  (Showing <%= @parts.to_a.count %> of <%= Part.count %>)
+</div>
+<%= form_tag parts_path, :method => 'get', :id => "parts_search" do %>
+  <p>
+    <b>Part Number: </b>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<div class='pagination-container'>
+  <%= will_paginate @parts %>
+</div>
+<br>
 <table class='table table-striped parts-table'>
   <thead>
     <tr>
@@ -25,9 +38,8 @@
         <td><%= part.quantity_in_stock %></td>
         <td><%= part.specs.present? ? 'yes' : 'no' %></td>
         <td>
-          <%= link_to 'Show', part %>
           <%= link_to 'Edit', edit_part_path(part) %>
-          <%= link_to 'Destroy', part, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Delete', part, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
@@ -35,5 +47,5 @@
 </table>
 
 <br>
-
+<%= will_paginate @parts %>
 <!-- <%= link_to 'New Part', new_part_path %> -->

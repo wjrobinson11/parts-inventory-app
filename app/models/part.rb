@@ -23,4 +23,13 @@ class Part < ApplicationRecord
   validates :part_number, uniqueness: true, presence: true
   validates :manufacturer, presence: true
   validates :description, presence: true
+
+
+  def self.search(search)
+    if search
+      where('lower(part_number) LIKE ?', "%#{search.downcase}%")
+    else
+      order('id DESC')
+    end
+  end
 end

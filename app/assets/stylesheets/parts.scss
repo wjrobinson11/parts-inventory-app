@@ -8,3 +8,18 @@ table.parts-table th {
 table.parts-table th.part-number {
   width: 25%
 }
+
+.pagination-container {
+  height: 21px;
+  clear: both;
+  margin: 10px;
+}
+.pagination {
+  width: 100%;
+  text-align: center;
+  margin: 0 !important;
+}
+#parts_search {
+  position: absolute;
+  right: 0;
+}
