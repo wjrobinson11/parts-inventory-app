@@ -26,14 +26,37 @@
             <%= f.text_area :description, {class: 'form-control'} %>
           </div>
         </div>
+        <script>
+          function readURL(input) {
+              if (input.files && input.files[0]) {
+                  var reader = new FileReader();
 
+                  reader.onload = function (e) {
+                      $('#part-image')
+                          .attr('src', e.target.result)
+                          .width(400)
+                  };
+
+                  reader.readAsDataURL(input.files[0]);
+              }
+          }
+        </script>
         <div class="form-group">
-          <%= f.label :image_url, {class: 'col-lg-3 control-label'} %>
-          <div class='col-lg-9'>
-            <%= f.text_field :image_url, {class: 'form-control'} %>
+          <%= f.label :image, {class: 'col-lg-3 control-label'} %>
+          <div class='col-lg-9' style='text-align:center;'>
+            <img id="part-image" src="<%= @part.image_url %>" alt="your image" style='margin-bottom:5px; width:400px;' />
+            <%= f.file_field :image, {class: 'form-control', onchange: "readURL(this);"} %>
           </div>
         </div>
+        <div class="form-group">
+          <%= f.label :pdf, {class: 'col-lg-3 control-label'} %>
+          <div class='col-lg-9'>
 
+            <a href="<%= @part.pdf_url %>" target="_blank">Download PDF</a>
+            <%= f.file_field :pdf, {class: 'form-control'} %>
+          </div>
+        </div>
+        
         <div class="form-group">
           <%= f.label :manufacturer, {class: 'col-lg-3 control-label'} %>
           <div class='col-lg-9'>

@@ -24,6 +24,7 @@
       <th>Manufacturer</th>
       <th>Quantity in stock</th>
       <th>Specs</th>
+      <th>PDF</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -37,6 +38,7 @@
         <td><%= part.manufacturer %></td>
         <td><%= part.quantity_in_stock %></td>
         <td><%= part.specs.present? ? 'yes' : 'no' %></td>
+        <td><a href='<%= part.pdf_url %>' target="_blank"><%= 'View' if part.pdf_url %></a></td>
         <td>
           <%= link_to 'Edit', edit_part_path(part) %>
           <%= link_to 'Delete', part, method: :delete, data: { confirm: 'Are you sure?' } %>

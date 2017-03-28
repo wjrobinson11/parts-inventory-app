@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303051934) do
+ActiveRecord::Schema.define(version: 20170328165028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170303051934) do
     t.string   "part_type"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "pdf_url"
     t.index ["manufacturer"], name: "index_parts_on_manufacturer", using: :btree
     t.index ["part_number"], name: "index_parts_on_part_number", using: :btree
   end

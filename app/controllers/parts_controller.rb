@@ -40,6 +40,8 @@ class PartsController < ApplicationController
   # PATCH/PUT /parts/1
   # PATCH/PUT /parts/1.json
   def update
+    params[:part][:image_url] = Cloudinary::Uploader.upload(params[:part][:image])["url"] if params[:part][:image]
+    params[:part][:pdf_url] = Cloudinary::Uploader.upload(params[:part][:pdf])["url"] if params[:part][:pdf]
     respond_to do |format|
       if @part.update(part_params)
         format.html { redirect_to @part, notice: 'Part was successfully updated.' }
@@ -69,6 +71,6 @@ class PartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def part_params
-      params.require(:part).permit(:description, :image_url, :manufacturer, :part_number, :part_type, :quantity_in_stock, :specs)
+      params.require(:part).permit(:description, :image_url, :pdf_url, :manufacturer, :part_number, :part_type, :quantity_in_stock, :specs)
     end
 end

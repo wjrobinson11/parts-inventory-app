@@ -9,6 +9,7 @@
 #  manufacturer      :string
 #  part_number       :string
 #  part_type         :string
+#  pdf_url           :string
 #  quantity_in_stock :string
 #  specs             :hstore
 #  updated_at        :datetime         not null
