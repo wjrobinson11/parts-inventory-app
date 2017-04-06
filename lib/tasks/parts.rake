@@ -3,7 +3,7 @@ namespace :parts do
   task :process1 => :environment do
     last_page = 0
     urls = []
-    pages = (501..1000).to_a.select{|el| el % 4 == 1};
+    pages = (1001..7200).to_a.select{|el| el % 4 == 1};
     pages.each do |page_number|
       puts "-------------------------Getting data for page #{page_number}--------------------------"
       page = Nokogiri::HTML(open("https://www.industrial.net/products?_per=100&_page=#{page_number}"));
