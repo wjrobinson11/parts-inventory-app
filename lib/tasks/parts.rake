@@ -3,7 +3,7 @@ namespace :parts do
   task :process1 => :environment do
     last_page = 0
     urls = []
-    pages = (1001..7200).to_a.select{|el| el % 4 == 1};
+    pages = (1078..7200).to_a.select{|el| el % 4 == 1};
     pages.each do |page_number|
       puts "-------------------------Getting data for page #{page_number}--------------------------"
       page = Nokogiri::HTML(open("https://www.industrial.net/products?_per=100&_page=#{page_number}"));
@@ -22,7 +22,7 @@ namespace :parts do
   task :process2 => :environment do
     last_page = 0
     urls = []
-    pages = (1001..7200).to_a.select{|el| el % 4 == 2};
+    pages = (1078..7200).to_a.select{|el| el % 4 == 2};
     pages.each do |page_number|
       puts "-------------------------Getting data for page #{page_number}--------------------------"
       page = Nokogiri::HTML(open("https://www.industrial.net/products?_per=100&_page=#{page_number}"));
@@ -41,7 +41,7 @@ namespace :parts do
   task :process3 => :environment do
     last_page = 0
     urls = []
-    pages = (1001..7200).to_a.select{|el| el % 4 == 3};
+    pages = (1078..7200).to_a.select{|el| el % 4 == 3};
     pages.each do |page_number|
       puts "-------------------------Getting data for page #{page_number}--------------------------"
       page = Nokogiri::HTML(open("https://www.industrial.net/products?_per=100&_page=#{page_number}"));
@@ -60,7 +60,7 @@ namespace :parts do
   task :process4 => :environment do
     last_page = 0
     urls = []
-    pages = (1001..7200).to_a.select{|el| el % 4 == 0};
+    pages = (1078..7200).to_a.select{|el| el % 4 == 0};
     pages.each do |page_number|
       puts "-------------------------Getting data for page #{page_number}--------------------------"
       page = Nokogiri::HTML(open("https://www.industrial.net/products?_per=100&_page=#{page_number}"));
