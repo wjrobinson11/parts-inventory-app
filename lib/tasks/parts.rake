@@ -1,9 +1,9 @@
 desc "This task will retrieve parts details"
 namespace :parts do
-  task :process1 => :environment do
+  task :process1, [:page_number] => :environment do |t, args|
     last_page = 0
     urls = []
-    pages = (4530..7200).to_a.select{|el| el % 4 == 1};
+    pages = (args[:page_number].to_i..7200).to_a.select{|el| el % 4 == 1};
     pages.each do |page_number|
       puts "-------------------------Getting data for page #{page_number}--------------------------"
       page = Nokogiri::HTML(open("https://www.industrial.net/products?_per=100&_page=#{page_number}"));
@@ -19,10 +19,10 @@ namespace :parts do
       last_page = page_number
     end
   end
-  task :process2 => :environment do
+  task :process2, [:page_number] => :environment do |t, args|
     last_page = 0
     urls = []
-    pages = (4530..7200).to_a.select{|el| el % 4 == 2};
+    pages = (args[:page_number].to_i..7200).to_a.select{|el| el % 4 == 2};
     pages.each do |page_number|
       puts "-------------------------Getting data for page #{page_number}--------------------------"
       page = Nokogiri::HTML(open("https://www.industrial.net/products?_per=100&_page=#{page_number}"));
@@ -38,10 +38,10 @@ namespace :parts do
       last_page = page_number
     end
   end
-  task :process3 => :environment do
+  task :process3, [:page_number] => :environment do |t, args|
     last_page = 0
     urls = []
-    pages = (4530..7200).to_a.select{|el| el % 4 == 3};
+    pages = (args[:page_number].to_i..7200).to_a.select{|el| el % 4 == 3};
     pages.each do |page_number|
       puts "-------------------------Getting data for page #{page_number}--------------------------"
       page = Nokogiri::HTML(open("https://www.industrial.net/products?_per=100&_page=#{page_number}"));
@@ -57,10 +57,10 @@ namespace :parts do
       last_page = page_number
     end
   end
-  task :process4 => :environment do
+  task :process4, [:page_number] => :environment do |t, args|
     last_page = 0
     urls = []
-    pages = (4530..7200).to_a.select{|el| el % 4 == 0};
+    pages = (args[:page_number].to_i..7200).to_a.select{|el| el % 4 == 0};
     pages.each do |page_number|
       puts "-------------------------Getting data for page #{page_number}--------------------------"
       page = Nokogiri::HTML(open("https://www.industrial.net/products?_per=100&_page=#{page_number}"));
