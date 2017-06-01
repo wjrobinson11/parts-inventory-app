@@ -10,6 +10,8 @@ class PartsController < ApplicationController
   # GET /parts/1
   # GET /parts/1.json
   def show
+    @part = Part.find(params[:id])
+    render layout: false
   end
 
   # GET /parts/new

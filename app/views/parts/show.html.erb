@@ -1,39 +1,321 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <title>RFQPARTS.net</title>
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
-<p>
-  <strong>Description:</strong>
-  <%= @part.description %>
-</p>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @part.image_url %>
-</p>
+  <script type="text/javascript">
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
 
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @part.manufacturer %>
-</p>
+                ga('create', 'UA-59152861-2', 'auto');
+                ga('send', 'pageview');
+  </script>
+  <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "WebSite",
+                    "name": "rfqparts.net",
+                    "url": "https://rfqparts.net/"
+                }
+  </script>
+  <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "WebSite",
+                    "url": "https://www.rfqparts.net/",
+                    "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": "https://www.rfqparts.net/products?_search={search_term_string}*",
+                        "query-input": {
+                            "@type": "PropertyValueSpecification",
+                            "valueRequired": true,
+                            "valueMaxLength": 100,
+                            "valueName": "search_term_string"
+                        }
+                    }
+                }
+  </script>
+  <%= stylesheet_link_tag 'parts-show', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <meta class="foundation-data-attribute-namespace">
+  <meta class="foundation-mq-xxlarge">
+  <meta class="foundation-mq-xlarge-only">
+  <meta class="foundation-mq-xlarge">
+  <meta class="foundation-mq-large-only">
+  <meta class="foundation-mq-large">
+  <meta class="foundation-mq-medium-only">
+  <meta class="foundation-mq-medium">
+  <meta class="foundation-mq-small-only">
+  <meta class="foundation-mq-small">
+  <meta class="foundation-mq-topbar">
+</head>
+<body>
 
-<p>
-  <strong>Part number:</strong>
-  <%= @part.part_number %>
-</p>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#rfq-button').click(function(){
 
-<p>
-  <strong>Part type:</strong>
-  <%= @part.part_type %>
-</p>
+        if( !$(this).hasClass('open') ){
+          $('#rfq-slider-area').animate({
+            marginLeft: "-50%"
+          },400);
+          $('#form-panel').show();
+          $(this)
+            .addClass("open")
+            .html("Back to product image");
+        }else{
+          $('#rfq-slider-area').animate({
+            marginLeft: "0%"
+          },400);
+          setTimeout(function(){
+            $('#form-panel').hide();
+          },400)
+          $(this)
+            .removeClass("open")
+            .html("Request for Quote");
+        }
+        
+      });
+    });
+  </script>
 
-<p>
-  <strong>Quantity in stock:</strong>
-  <%= @part.quantity_in_stock %>
-</p>
+  <header class="t-header" id="app-header">
+    <div class="row">
+      <div class="large-12 columns">
+        <nav class="top-bar" data-topbar="" role="navigation">
+          <section class="top-bar-section">
+            <ul class="right main-nav">
+              <li class="">
+                <a href="#" target="_self" style='color:grey;'>Home</a>
+              </li>
+              <li class="">
+                <a href="#" target="_self" style='color:grey;'>Manufacturers</a>
+              </li>
+              <li class="">
+                <a href="/parts" target="_self">Products</a>
+              </li>
+              <li class="">
+                <a href="#" target="_self" style='color:grey;'>Contact Us</a>
+              </li>
+              <li class="">
+                <a style="color:#2c3e50;" href="#" target="_self">
+                  (555) 555-5555
+                </a>
+              </li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-<p>
-  <strong>Specs:</strong>
-  <%= @part.specs %>
-</p>
+  <div class="l-main">
+    
 
-<%= link_to 'Edit', edit_part_path(@part) %> |
-<%= link_to 'Back', parts_path %>
+
+    <div style="background:#ececec;padding:10px;">
+      <div class="row" style="float: none; margin-left: auto; margin-right: auto;">
+        <h2><%= @part.part_number %></h2>
+      </div>
+    </div>
+
+    <div class="breadcrumbs">
+      <div class="row" style="float: none; margin-left: auto; margin-right: auto;">
+        <div class="large-12 columns">
+          <ul class="list-inline">
+            <li>Home</li>
+            <li><%= @part.manufacturer %></li>
+            <li><%= @part.part_number %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="l-content l-content-secondary" itemscope itemtype="http://schema.org/Product">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="row">
+            <div class="large-12 columns">
+              <div class="row" style="overflow-x: hidden;" >
+                <div id="rfq-slider-area" class="large-18 columns">
+                <div class="medium-4 columns">
+                  <img src=<%= @part.image_url %> alt="Placeholder Image" style="float:left;width:400px;height:400px;" />
+                </div>
+                <div class="medium-4 columns">
+                  <div class="copy copy-single">
+                    <strong itemprop="manufacturer"><%= @part.manufacturer %></strong>
+                    <h3 itemprop="name" style="font-size:40px;"><%= @part.part_number %></h3>
+                    <h3 style="font-size:18px;display: inline-block;">  
+                      Quantity in stock:
+                    </h3>
+
+                    <div style="font-size:18px;display:inline-block;color:#0e78b8;font-weight:bold">
+                      Available
+                      <span class="icon-check" style="font-family: FontAwesome;color:green;font-size:18px"></span>
+                    </div>
+
+                    <div style="margin:20px 0">
+                      <p itemprop="description">
+                      Description: <%= @part.description %>
+                      </p>
+                    </div>
+
+                    <div id="rfq-button" class="btn" style="background-color:#26A65B;">Request for Quote</div>
+                  </div>
+
+
+                </div>
+
+                <div id="form-panel" class="medium-4 columns">
+                  <div class="" style="padding:20px;background:#efefef;border:1px solid #ddd;">
+                    <h3>Request Quote</h3>
+                    <div class="input-group">
+                      <label style="padding:5px">Name</label>
+                      <input type="text" placeholder="Name">
+                    </div>
+                    <div class="input-group">
+                      <label style="padding:5px">Email</label>
+                      <input type="text" placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                      <label style="padding:5px">Company</label>
+                      <input type="text" placeholder="Company">
+                    </div>
+                    <div class="input-group">
+                      <label style="padding:5px">Phone</label>
+                      <input type="number" placeholder="Phone">
+                    </div>
+                    <div class="input-group">
+                      <label style="padding:5px">Quantity</label>
+                      <input style="width:60px" type="number" placeholder="1">
+                    </div>
+                    <div class="input-group">
+                      <label style="padding:5px">Comments:</label>
+                      <textarea name="comments" cols="40" rows="10"></textarea>
+                    </div>
+                    <div id="rfq-button" class="btn-sm">Submit</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="clearfix"></div>
+              <div class="group group-anchor" id="details">
+                <h2>Details</h2>
+                <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                  <thead></thead>
+                  <tbody>
+                    <tr>
+                      <td><b>Product</b></td>
+                      <td><%= @part.part_number %></td>
+                    </tr>
+                    <tr>
+                      <td><b>Make</b></td>
+                      <td><%= @part.manufacturer %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><b>Base</b></td>
+                      <td>
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><b>Type</b></td>
+                      <td><%= @part.part_type %></td>
+                    </tr>
+                    <tr>
+                      <td><b>Lead Time</b></td>
+                      <td>Available</td>
+                    </tr>
+                    <tr>
+                      <td><b>Quantity in Stock</b></td>
+                      <td>Available</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="group group-anchor" id="specs">
+                <h2>Specs</h2>
+                <% if @part.specs.present? %>
+                  <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                    <tbody>
+                      <% @part.specs.each do |key, value| %>
+                        <tr>
+                          <td><b><%= key %></b></td>
+                          <td><%= value %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                <% else %>
+                  Call for specs
+                <% end %>
+              </div>
+              <div class="group group-anchor" id="features">
+                <h2>Features</h2>
+                <div class="copy copy-single">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis est nec nibh malesuada, sit amet scelerisque orci sagittis. Cras dictum erat tortor, eu rutrum quam tincidunt et. Nullam quis nunc at risus lobortis venenatis et sit amet ex. Vivamus egestas at velit condimentum pulvinar. Aliquam cursus tortor vitae tempor vulputate. Vivamus eu lobortis sapien, sed rhoncus lectus. Nullam in dignissim felis. Donec volutpat neque id dolor egestas dignissim. Nam eget vulputate purus. Proin eu facilisis massa. Vivamus lacinia lacus libero, quis elementum eros ornare eget. Cras venenatis sem lorem, a vulputate nisi mattis ac. In eu lorem sed quam suscipit sagittis.
+                </div>
+              </div>
+              <div class="group group-anchor" id="manual">
+                <h2>Manual</h2>
+                <div class="copy copy-single">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis est nec nibh malesuada, sit amet scelerisque orci sagittis. Cras dictum erat tortor, eu rutrum quam tincidunt et. Nullam quis nunc at risus lobortis venenatis et sit amet ex. Vivamus egestas at velit condimentum pulvinar. Aliquam cursus tortor vitae tempor vulputate. Vivamus eu lobortis sapien, sed rhoncus lectus. Nullam in dignissim felis. Donec volutpat neque id dolor egestas dignissim. Nam eget vulputate purus. Proin eu facilisis massa. Vivamus lacinia lacus libero, quis elementum eros ornare eget. Cras venenatis sem lorem, a vulputate nisi mattis ac. In eu lorem sed quam suscipit sagittis.
+                </div>
+              </div>
+              <div class="group group-anchor" id="faqs">
+                <h2>FAQs</h2>
+                <br/>
+                <div class="copy copy-single">
+                  <ol style="list-style: none;">
+                    <li>
+                      <strong>Which types of payments do you accept?</strong>
+                      <p>All major credit cards, PayPal, checks, and wire transfer.</p>
+                    </li>
+                    <li><strong>Can you ship worldwide?</strong>
+                      <p>Yes, and we may do so on your account as well. We ship via UPS, FedEx, and DHL. We also work with freight forwarders upon request.</p> 
+                    </li>
+                    <li>
+                      <strong>How quickly can I receive my order?</strong>
+                      <p>Standard delivery is 3-5 business days. Expedited delivery is available on a case by case basis.</p>
+                    </li>
+                    <li>
+                      <strong>What warranty will my item come with?</strong>
+                      <p>Our standard warranty is 30 days. Some products may come with a longer protection plan.</p>
+                    </li>
+                    <li>
+                      <strong>I am looking for an item not on your site, can you help me?</strong>
+                      <p>Absolutely, contact us with your requirements.</p>
+                    </li>
+                    <li>
+                      <strong>Do you offer repair service?</strong>
+                      <p>Yes, we are readily able to support the disassembly, inspection, and restoration of your industrial components in a practical, cost-saving manner.</p>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="t-footer">
+    <div class="copyright">
+    </div>
+  </footer>
+  <div class="hide"><img alt="Spinner" src="/assets/spin.gif"></div>
+</body>
+</html>
