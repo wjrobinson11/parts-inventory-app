@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <title>RFQPARTS.net</title>
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <script type="text/javascript">
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', 'http://www.google-analytics.com/analytics.js', 'ga');
+
+                ga('create', 'UA-59152861-2', 'auto');
+                ga('send', 'pageview');
+  </script>
+  <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "WebSite",
+                    "name": "rfqparts.net",
+                    "url": "https://rfqparts.net/"
+                }
+  </script>
+  <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "WebSite",
+                    "url": "https://www.rfqparts.net/",
+                    "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": "https://www.rfqparts.net/products?_search={search_term_string}*",
+                        "query-input": {
+                            "@type": "PropertyValueSpecification",
+                            "valueRequired": true,
+                            "valueMaxLength": 100,
+                            "valueName": "search_term_string"
+                        }
+                    }
+                }
+  </script>
+  <%= stylesheet_link_tag 'parts-show', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <meta class="foundation-data-attribute-namespace">
+  <meta class="foundation-mq-xxlarge">
+  <meta class="foundation-mq-xlarge-only">
+  <meta class="foundation-mq-xlarge">
+  <meta class="foundation-mq-large-only">
+  <meta class="foundation-mq-large">
+  <meta class="foundation-mq-medium-only">
+  <meta class="foundation-mq-medium">
+  <meta class="foundation-mq-small-only">
+  <meta class="foundation-mq-small">
+  <meta class="foundation-mq-topbar">
+</head>
+<body>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#rfq-button').click(function(){
+
+        if( !$(this).hasClass('open') ){
+          $('#rfq-slider-area').animate({
+            marginLeft: "-50%"
+          },400);
+          $('#form-panel').show();
+          $(this)
+            .addClass("open")
+            .html("Back to product image");
+        }else{
+          $('#rfq-slider-area').animate({
+            marginLeft: "0%"
+          },400);
+          setTimeout(function(){
+            $('#form-panel').hide();
+          },400)
+          $(this)
+            .removeClass("open")
+            .html("Request for Quote");
+        }
+        
+      });
+    });
+  </script>
+
+  <header class="t-header" id="app-header">
+    <div class="row">
+      <div class="large-12 columns">
+        <nav class="top-bar" data-topbar="" role="navigation">
+          <section class="top-bar-section">
+            <ul class="right main-nav">
+              <li class="">
+                <a href="http://<%= @site_domain %>" target="_self" class="<%= 'active' if @home_tab %>">Home</a>
+              </li>
+              <li class="">
+                <a href="http://<%= @site_domain %>/manufacturers" target="_self" class="<%= 'active' if @manufacturers_tab %>">Manufacturers</a>
+              </li>
+              <li class="">
+                <a href="http://<%= @site_domain %>/products" target="_self" class="<%= 'active' if @products_tab %>">Products</a>
+              </li>
+              <li class="">
+                <a href="http://<%= @site_domain %>/contact_us" target="_self" class="<%= 'active' if @contact_us_tab %>">Contact Us</a>
+              </li>
+              <li class="">
+                <a style="color:#2c3e50;" href="#" target="_self">
+                  (555) 555-5555
+                </a>
+              </li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <%= yield %>
+</body>
+</html>

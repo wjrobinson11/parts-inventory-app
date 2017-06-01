@@ -1,10 +1,11 @@
 class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /leads
   # GET /leads.json
   def index
-    @leads = Lead.paginate(:page => params[:page], :per_page => 30)
+    @leads = Lead.all
   end
 
   # GET /leads/1

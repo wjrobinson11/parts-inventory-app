@@ -1,5 +1,7 @@
 class PartsController < ApplicationController
   before_action :set_part, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :index]
+  before_action :set_products_tab
 
   # GET /parts
   # GET /parts.json
@@ -10,8 +12,7 @@ class PartsController < ApplicationController
   # GET /parts/1
   # GET /parts/1.json
   def show
-    @part = Part.find(params[:id])
-    render layout: false
+    render layout: 'external'
   end
 
   # GET /parts/new
@@ -55,6 +56,11 @@ class PartsController < ApplicationController
     end
   end
 
+  def public_index
+    @parts = Part.search(params[:search]).paginate(:page => params[:page], :per_page => 30)
+    render layout: 'external'
+  end
+
   # DELETE /parts/1
   # DELETE /parts/1.json
   def destroy
@@ -68,11 +74,16 @@ class PartsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_part
-      @part = Part.find(params[:id])
+      @part = Part.find_by(id: params[:id])
+      @part ||= Part.where('lower(part_number) = ?', request.subdomain.downcase).last
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def part_params
       params.require(:part).permit(:description, :image_url, :pdf_url, :manufacturer, :part_number, :part_type, :quantity_in_stock, :specs)
+    end
+
+    def set_products_tab
+      @products_tab = true
     end
 end

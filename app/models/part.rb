@@ -4,6 +4,7 @@
 #
 #  created_at        :datetime         not null
 #  description       :text
+#  features          :text
 #  id                :integer          not null, primary key
 #  image_url         :string
 #  manufacturer      :string
