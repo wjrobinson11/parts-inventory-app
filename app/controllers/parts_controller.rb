@@ -12,7 +12,7 @@ class PartsController < ApplicationController
   # GET /parts/1
   # GET /parts/1.json
   def show
-    render layout: 'external'
+    render layout: false
   end
 
   # GET /parts/new
@@ -47,7 +47,7 @@ class PartsController < ApplicationController
     params[:part][:pdf_url] = Cloudinary::Uploader.upload(params[:part][:pdf])["url"] if params[:part][:pdf]
     respond_to do |format|
       if @part.update(part_params)
-        format.html { redirect_to @part, notice: 'Part was successfully updated.' }
+        format.html { redirect_to '/parts', notice: 'Part was successfully updated.' }
         format.json { render :show, status: :ok, location: @part }
       else
         format.html { render :edit }

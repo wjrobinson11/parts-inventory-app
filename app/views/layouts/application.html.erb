@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <div class='main-nav'>
+      <ul class='nav-list'>
+        <li class='nav-link'><a href="/parts">Parts</a></li>
+        <li class='nav-link'><a href="/leads">Leads</a></li>
+      </ul>
+    </div>
     <div id='main-container'>
       <div class='logout-container' style='position:absolute;right:0;'>
         <%= link_to('Logout', destroy_user_session_path, :method => :delete) if current_user %>
