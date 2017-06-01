@@ -16,7 +16,7 @@
 #
 
 class Lead < ApplicationRecord
-  belongs_to :part
+  belongs_to :part, optional: true
   validate :contact_is_present?
 
   protected

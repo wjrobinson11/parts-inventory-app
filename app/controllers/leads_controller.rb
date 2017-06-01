@@ -18,9 +18,8 @@ class LeadsController < ApplicationController
   # POST /leads
   # POST /leads.json
   def create
-    @part = Part.find(params.require(:part_id))
+    @part = Part.find_by(id: params[:part_id])
     @lead = Lead.new(lead_params)
-
     respond_to do |format|
       if @lead.save
         #recipients = ['wes@keystacksolutions.com', 'devery@keystacksolutions.com', 'sales@processindustrialsupply.com']
@@ -31,12 +30,11 @@ class LeadsController < ApplicationController
             from: 'leads@keystack.biz',
             to:   recipient,
             subject: "New lead from #{@lead.origin}",
-            text:    "Name: #{@lead.name}\nEmail: #{@lead.email}\nPhone: #{@lead.phone}\nCompany: #{@lead.company}\nPart: #{@lead.part.part_number}\nQuantity: #{@lead.quantity}\nSite: #{@lead.origin}\nComments from lead: #{@lead.comments}"
+            text:    "Name: #{@lead.name}\nEmail: #{@lead.email}\nPhone: #{@lead.phone}\nCompany: #{@lead.company}\nPart: #{@lead.part.try(:part_number)}\nQuantity: #{@lead.quantity}\nSite: #{@lead.origin}\nComments from lead: #{@lead.comments}"
           }
           mg_client.send_message('mg.keystack.biz', message_params) rescue true
         end
-
-        format.json { render @part, status: :created, location: @lead }
+        format.json { render json: @lead, status: :created, location: @lead }
       else
         format.json { render json: @lead.errors, status: 200 }
       end

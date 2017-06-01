@@ -29,6 +29,7 @@ audio:not([controls]) {
     font-style: normal;
 }
 
+
 i[class^="icon-"], i[class*=" icon-"] { font-family: FontAwesome; font-weight: normal; font-style: normal; text-decoration: inherit; -webkit-font-smoothing: antialiased; display: inline; width: auto; height: auto; vertical-align: baseline; letter-spacing: normal; background-image: none; background-position: 0% 0%; background-repeat: repeat; margin-top: 0; }
 
 i[class^="icon-"]:before, i[class*=" icon-"]:before { text-decoration: inherit; display: inline-block; speak: none; }
@@ -5919,8 +5920,8 @@ h2, h3 {
 
 }
 .tabs dd.active a, .tabs .tab-title.active a {
-  background-color: rgba(255, 255, 255, .4);
-  color:white;
+    background-color: rgba(255, 255, 255, .4);
+    color:white;
 }
 .tabs.radius dd:first-child a, .tabs.radius .tab:first-child a {
     -webkit-border-bottom-left-radius: 3px;
@@ -7743,10 +7744,11 @@ body {
 .l-content-secondary {
     padding-bottom: 35px;
 }
+
 .main {
     position: relative;
+    margin-top:65px;
     z-index: 3;
-    margin-top: 65px;
     background-color: #fff;
     -ms-transform: translate(0, 0);
     -webkit-transform: translate3d(0, 0, 0);
@@ -7959,7 +7961,7 @@ body {
     padding-top: 20px;
     padding-bottom: 15px;    
     background-color: #eee;
-    background:url('/assets/circuit.jpg');
+    background:url('../images/circuit.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -8072,7 +8074,7 @@ body {
 }
 .banner-tab .nav-tabs a, .banner-tab .tabs a {
     display: block;
-    border-radius: 100px; 
+    border-radius: 100px;   
     padding-top: 14px;
     padding-bottom: 14px;
     padding-left: 25px;
@@ -8115,7 +8117,7 @@ body {
 }
 
 
-div#manufacturer-search{
+div#manufacturer-search, #product-search{
     position: relative;
     float:right;
     margin-top:10px;
@@ -8165,7 +8167,7 @@ div#manufacturer-search{
     }
 }
 
-div#manufacturer-search input {
+div#manufacturer-search input , #product-search input {
     height: 40px;
     padding-left: 60px;
     border-radius: 100px;
@@ -8173,12 +8175,12 @@ div#manufacturer-search input {
     margin-bottom: 0px;
 }
 
-div#manufacturer-search .form-icon{
+div#manufacturer-search .form-icon, #product-search .form-icon{
     left:10px;
     top:8px;
 }
 
-div#manufacturer-search .btn{
+div#manufacturer-search .btn, #product-search .btn{
     position: absolute;
     top: 0;
     right: 0;
@@ -9160,8 +9162,16 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
 }
 }
 
+.product{
+    padding:10px;
+}
+
 #form-panel{
     display: none;
+}
+
+#contact-form-panel{
+    display: block;
 }
 
 #form-panel input{
