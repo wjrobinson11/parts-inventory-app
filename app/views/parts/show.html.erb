@@ -175,37 +175,43 @@
 
                 </div>
 
-                <div id="form-panel" class="medium-4 columns">
-                  <div class="" style="padding:20px;background:#efefef;border:1px solid #ddd;">
-                    <h3>Request Quote</h3>
-                    <div class="input-group">
-                      <label style="padding:5px">Name</label>
-                      <input type="text" placeholder="Name">
+                <%= form_tag('/leads', id: 'lead_form') do %>
+                  <input name="part_id" type="hidden" value=<%= @part.id %> /> 
+                  <div id="form-panel" class="medium-4 columns">
+                    <div class="" style="padding:20px;background:#efefef;border:1px solid #ddd;">
+                      <input type="hidden" value="<%= form_authenticity_token() %>" name="authenticity_token"/>
+                      <h3>Request Quote</h3>
+                      <div class="input-group">
+                        <label style="padding:5px">Name</label>
+                        <input name="name" type="text" placeholder="Name">
+                      </div>
+                      <div class="input-group">
+                        <label style="padding:5px">Email</label>
+                        <input name="email" type="email" placeholder="Email">
+                      </div>
+                      <div class="input-group">
+                        <label style="padding:5px">Company</label>
+                        <input name="company" type="text" placeholder="Company">
+                      </div>
+                      <div class="input-group">
+                        <label style="padding:5px">Phone</label>
+                        <input name="phone" type="number" placeholder="Phone">
+                      </div>
+                      <div class="input-group">
+                        <label style="padding:5px">Quantity</label>
+                        <input name="quantity" style="width:60px" type="number" placeholder="1">
+                      </div>
+                      <div class="input-group">
+                        <label style="padding:5px">Comments:</label>
+                        <textarea name="comments" cols="40" rows="10"></textarea>
+                      </div>
+                      <div id='form-button'>
+                        <button type="submit" id="rfq-button" class="btn-sm">Submit</div>
+                        <p id='errors' style='color:red; font-weight:bold;'></p>
+                      </div>
                     </div>
-                    <div class="input-group">
-                      <label style="padding:5px">Email</label>
-                      <input type="text" placeholder="Email">
-                    </div>
-                    <div class="input-group">
-                      <label style="padding:5px">Company</label>
-                      <input type="text" placeholder="Company">
-                    </div>
-                    <div class="input-group">
-                      <label style="padding:5px">Phone</label>
-                      <input type="number" placeholder="Phone">
-                    </div>
-                    <div class="input-group">
-                      <label style="padding:5px">Quantity</label>
-                      <input style="width:60px" type="number" placeholder="1">
-                    </div>
-                    <div class="input-group">
-                      <label style="padding:5px">Comments:</label>
-                      <textarea name="comments" cols="40" rows="10"></textarea>
-                    </div>
-                    <div id="rfq-button" class="btn-sm">Submit</div>
                   </div>
-                </div>
-
+                <% end %>
               </div>
 
               <div class="clearfix"></div>
@@ -261,18 +267,23 @@
                   Call for specs
                 <% end %>
               </div>
-              <div class="group group-anchor" id="features">
-                <h2>Features</h2>
-                <div class="copy copy-single">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis est nec nibh malesuada, sit amet scelerisque orci sagittis. Cras dictum erat tortor, eu rutrum quam tincidunt et. Nullam quis nunc at risus lobortis venenatis et sit amet ex. Vivamus egestas at velit condimentum pulvinar. Aliquam cursus tortor vitae tempor vulputate. Vivamus eu lobortis sapien, sed rhoncus lectus. Nullam in dignissim felis. Donec volutpat neque id dolor egestas dignissim. Nam eget vulputate purus. Proin eu facilisis massa. Vivamus lacinia lacus libero, quis elementum eros ornare eget. Cras venenatis sem lorem, a vulputate nisi mattis ac. In eu lorem sed quam suscipit sagittis.
+              <%- if @part.features %>
+                <div class="group group-anchor" id="features">
+                  <h2>Features</h2>
+                  <div class="copy copy-single">
+                    <%= @part.features %>
+                  </div>
                 </div>
-              </div>
-              <div class="group group-anchor" id="manual">
-                <h2>Manual</h2>
-                <div class="copy copy-single">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis est nec nibh malesuada, sit amet scelerisque orci sagittis. Cras dictum erat tortor, eu rutrum quam tincidunt et. Nullam quis nunc at risus lobortis venenatis et sit amet ex. Vivamus egestas at velit condimentum pulvinar. Aliquam cursus tortor vitae tempor vulputate. Vivamus eu lobortis sapien, sed rhoncus lectus. Nullam in dignissim felis. Donec volutpat neque id dolor egestas dignissim. Nam eget vulputate purus. Proin eu facilisis massa. Vivamus lacinia lacus libero, quis elementum eros ornare eget. Cras venenatis sem lorem, a vulputate nisi mattis ac. In eu lorem sed quam suscipit sagittis.
+              <% end %>
+
+              <%- if @part.pdf_url %>
+                <div class="group group-anchor" id="manual">
+                  <h2>Manual</h2>
+                  <div class="copy copy-single">
+                    <a href='<%= @part.pdf_url %>' target="_blank">Download manual</a>
+                  </div>
                 </div>
-              </div>
+              <% end %>
               <div class="group group-anchor" id="faqs">
                 <h2>FAQs</h2>
                 <br/>
@@ -319,3 +330,41 @@
   <div class="hide"><img alt="Spinner" src="/assets/spin.gif"></div>
 </body>
 </html>
+<script type='text/javascript'>
+    /* attach a submit handler to the form */
+    $("#lead_form").submit(function(event) {
+      console.log('submitting')
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get the action attribute from the <form action=""> element */
+      var $form = $( this ),
+          url = $form.attr( 'action' );
+
+      /* Send the data using post with element id name and name2*/
+      var posting = $.post( url,
+        {
+          name: $('input[name="name"]').val(),
+          email: $('input[name="email"]').val(),
+          company: $('input[name="company"]').val(),
+          phone: $('input[name="phone"]').val(),
+          quantity: $('input[name="quantity"]').val(),
+          comments: $('textarea[name="comments"]').val(),
+          part_id: $('input[name="part_id"]').val(),
+          authenticity_token: $('input[name="authenticity_token"]').val(),
+          origin: document.location.hostname
+        } );
+
+      /* Alerts the results */
+      posting.done(function( data ) {
+        console.log(data)
+        if(typeof(data.id) !== 'undefined'){
+          $('#form-button').html("<p style='color:#26A65B;font-weight:bold;'>Thank you for your request we will reach out to you shortly.</p>")
+          $('#errors').html('')
+        }
+        if(typeof(data.error) !== 'undefined'){
+          $('#errors').html(data.error[0])
+        }
+      });
+    });
+</script>

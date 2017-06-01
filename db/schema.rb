@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328165028) do
+ActiveRecord::Schema.define(version: 20170601143927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "leads", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "company"
+    t.string   "phone"
+    t.integer  "part_id"
+    t.integer  "quantity"
+    t.string   "origin"
+    t.text     "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "parts", force: :cascade do |t|
     t.string   "part_number"
@@ -27,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170328165028) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "pdf_url"
+    t.text     "features"
     t.index ["manufacturer"], name: "index_parts_on_manufacturer", using: :btree
     t.index ["part_number"], name: "index_parts_on_part_number", using: :btree
   end

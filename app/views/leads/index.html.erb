@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<div style='text-align:center;' class='leads-inventory-header'>
+  <h1>Leads</h1>
+  (Showing <%= @leads.to_a.count %> of <%= Lead.count %>)
+</div>
+<%= form_tag leads_path, :method => 'get', :id => "leads_search" do %>
+  <p>
+    <b>Part Number: </b>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<div class='pagination-container'>
+  <%= will_paginate @leads %>
+</div>
+<br>
+<table class='table table-striped leads-table'>
+  <thead>
+    <tr>
+      <th class='lead-number'>Part number</th>
+      <th class='description'>Description</th>
+      <th>Image url</th>
+      <th>Manufacturer</th>
+      <th>Quantity in stock</th>
+      <th>Specs</th>
+      <th>PDF</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leads.each do |lead| %>
+      <tr>
+        <td><%= lead.lead_number %></td>
+        <td><%= lead.description %></td>
+        <td><a href="<%= lead.image_url %>" target="_blank"><%= lead.image_url %></a></td>
+        <td><%= lead.manufacturer %></td>
+        <td><%= lead.quantity_in_stock %></td>
+        <td><%= lead.specs.present? ? 'yes' : 'no' %></td>
+        <td><a href='<%= lead.pdf_url %>' target="_blank"><%= 'View' if lead.pdf_url %></a></td>
+        <td>
+          <%= link_to 'Show', lead_path(lead) %>
+          <%= link_to 'Edit', edit_lead_path(lead) %>
+          <%= link_to 'Delete', lead, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= will_paginate @leads %>
+<!-- <%= link_to 'New Part', new_lead_path %> -->

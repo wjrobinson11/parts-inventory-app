@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: leads
+#
+#  comments   :text
+#  company    :string
+#  created_at :datetime         not null
+#  email      :string
+#  id         :integer          not null, primary key
+#  name       :string
+#  origin     :string
+#  part_id    :integer
+#  phone      :string
+#  quantity   :integer
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  email: MyString
+  company: MyString
+  phone: MyString
+  part_id: 1
+  quantity: 1
+  origin: MyString
+
+two:
+  name: MyString
+  email: MyString
+  company: MyString
+  phone: MyString
+  part_id: 1
+  quantity: 1
+  origin: MyString
