@@ -58,7 +58,8 @@ class PartsController < ApplicationController
 
   def public_index
     @parts = Part.search(params[:search]).paginate(:page => params[:page], :per_page => 30)
-    render layout: 'external'
+    @part_total_count = Part.search(params[:search]).count
+    render layout: false
   end
 
   # DELETE /parts/1

@@ -7961,7 +7961,7 @@ body {
     padding-top: 20px;
     padding-bottom: 15px;    
     background-color: #eee;
-    background:url('../images/circuit.jpg');
+    background:url('/assets/circuit.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -8683,41 +8683,7 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
 .post-block-secondary p {
     margin-bottom: 0;
 }
-.pagination {
-    margin-top: 40px;
-    margin-bottom: 50px;
-    clear: both;
-    float: left;
-    width: 100%}
-.pagination li {
-    float: left;
-    margin-right: 10px;
-}
-.pagination li.is-active a, .pagination li:hover a {
-    background-color: #27b7e5!important;
-    color: #fff!important;
-    border-color: #27b7e5!important;
-}
-.pagination a {
-    display: block;
-    padding-top: 12px!important;
-    padding-bottom: 12px!important;
-    padding-right: 16px!important;
-    padding-left: 16px!important;
-    border: 1px solid #e6e6e6;
-    font-size: 15px;
-    font-weight: bold;
-    color: #444;
-    border-radius: 0!important;
-    -moz-border-radius: 0!important;
-    -webkit-border-radius: 0!important;
-    -webkit-transition: all .2s linear;
-    -o-transition: all .2s linear;
-    transition: all .2s linear;
-}
-.pagination a:hover {
-    background-color: #eee;
-}
+
 .widget {
     text-align: center;
     color: #656565;
