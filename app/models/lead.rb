@@ -19,11 +19,17 @@ class Lead < ApplicationRecord
   belongs_to :part, optional: true
   validate :contact_is_present?
 
+  after_initialize :ensure_quantity
+
   protected
 
   def contact_is_present?
     if email.blank? && phone.blank?
       errors.add :error, "Phone number or email must be present."
     end
+  end
+
+  def ensure_quantity
+    self.quantity ||= 1
   end
 end
