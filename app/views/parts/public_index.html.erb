@@ -77,7 +77,7 @@
       <div class="medium-12 columns">
         <%- @parts.each do |part| %>
           <div class="product">
-            <a href="http://<%= part.subdomain.downcase.gsub(' ', '-') %>.<%= @site_domain %>">
+            <a href="http://<%= part.subdomain.downcase.gsub(' ', '-') %>.<%= @site_top_domain %>">
               <div class="row">
                 <div class="small-4 columns">
                   <img src="<%= part.image_url %>"  style="height:95px; float:right;" alt="">

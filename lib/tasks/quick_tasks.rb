@@ -4,9 +4,12 @@ arr.each do |el|
   Manufacturer.create!(name: el.first, image_url: el.last)
 end
 # Populate subdomains
-Part.all.each_with_index do |part,index|
-  puts "#{index} of #{703000}"
-  part.update!(subdomain: part.part_number.gsub(' ','').downcase)
+parts = Part.where('subdomain is null').where('id > ?', 300000).to_a;
+Part.where('subdomain is null').where('id > ?', 300000).find_in_batches do |group|
+  group.each do |part|
+    puts "#{part.id} of #{703000}"
+    part.update!(subdomain: part.part_number.gsub(' ','').downcase)
+  end
 end
 # update images
 Part.all.each do |part|
