@@ -19,7 +19,9 @@
       <div class="large-12 columns">
         <nav class="top-bar" data-topbar="" role="navigation">
           <section class="top-bar-section">
-            <div style="display: inline-block;font-size:24px;padding:10px; font-family: 'RobotoSlab';font-weight: bold;">RFQ Parts</div>
+            <a href="http://<%= @site_domain %>" class='brand-link'>
+              <div style="display: inline-block;font-size:30px;padding:10px; font-family: 'RobotoSlab';font-weight: bold;">RFQ Parts</div>
+            </a>
             <img src="/assets/hamburger.png" style='float: right; width: 40px; margin: 19px;' class='hamburger-nav'>
             <ul class="right main-nav">
               <li class="">
@@ -56,8 +58,10 @@
             <div class="form-icon">
               <i class="icon icon-search"></i>
             </div>
-            <input type="text" class="search-input" placeholder="Enter Manufacturer"  id="searchManufacturers">
-            <button onclick="" class="btn">Search</button>
+            <%= form_tag "http://#{@site_domain}/manufacturers", :method => 'get', :id => "parts_search" do %>
+              <%= text_field_tag :search, params[:search], {class: 'search-input', id: 'searchProduct', placeholder: "Search term"} %>
+              <%= button_tag "Search", :name => nil, class: 'btn' %>
+            <% end %>
           </div>
         </div>  
 
@@ -69,7 +73,7 @@
   <div class="" style="background:#333;background:url('/assets/whole_akron_plant.jpg');background-size:cover;background-position:center center;height:475px;">
   
     <div class="row">
-      <h1 style="text-align: center;color:white;margin-top:100px;font-size: 4em">Manufacturers</h1>
+      <h1 style="text-align: center;color:white;margin-top:100px;font-size: 4em" class='manufacturer-header'>Manufacturers</h1>
       <p style="margin-top:80px;color:white;font-size:28px;font-weight:200;text-align: center;">We have access to hundreds manufacturers across the nation and globally. <br>Our inventory is constantly growing with a variety new and end of life parts.</p>
   
     </div>
@@ -77,198 +81,55 @@
   </div>
 
   <div>
-    <table style="width: 100%;">
+    <table style="width: 100%; min-height: 300px; margin-bottom: 0px;">
       <tbody>
-        <tr>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-          <td style="vertical-align: top;">
-            <div style="text-align: center;">
-              <div>
-                <img alt="" src="https://via.placeholder.com/350x150" style="height: 40px;margin:10px;">
-              </div>    
-              <a href="#">Company Name</a>
-            </div>
-          </td>
-        </tr>             
+        <%- coupled_manufacturers = [
+          [@manufacturers[0],@manufacturers[1]].compact,
+          [@manufacturers[2],@manufacturers[3]].compact,
+          [@manufacturers[4],@manufacturers[5]].compact,
+          [@manufacturers[6],@manufacturers[7]].compact,
+          [@manufacturers[8],@manufacturers[9]].compact,
+          [@manufacturers[10],@manufacturers[11]].compact,
+          [@manufacturers[12],@manufacturers[13]].compact,
+          [@manufacturers[14],@manufacturers[15]].compact,
+          [@manufacturers[16],@manufacturers[17]].compact,
+          [@manufacturers[18],@manufacturers[19]].compact,
+        ] %>
+        <%- coupled_manufacturers.each_with_index do |manufacturer_arr| %>
+          <tr>
+            <%- manufacturer_arr.each do |manufacturer| %>
+              <td style="vertical-align: top;">
+                <div style="text-align: center;">
+                  <div>
+                    <img alt="" src="<%= manufacturer.image_url %>" style="height: 40px; width: 150px;margin:10px;">
+                  </div>    
+                  <a href='<%= "http://#{@site_domain}/products?search=#{manufacturer.name.downcase}" %>'><%= manufacturer.name %></a>
+                </div>
+              </td>
+            <% end %>
+          </tr> 
+        <% end %>            
       </tbody>
     </table>
   </div>
 
   <div class="pages" style="color:white;text-align: center;padding:10px;font-size:1.5em">
-    1 2
+    <%= will_paginate @manufacturers %>
   </div>
 
   <footer class="t-footer" >
-    <div class="copyright">
+    <div class="share-links" style='text-align:center;font-size:30px;padding:20px;'>
+      <a href="https://www.facebook.com/ProcessIndustrialSupply/" target="_blank">
+        <i class="fa fa-facebook" aria-hidden="true" style='width:40px;'></i>
+      </a>
+      <a href="https://twitter.com/ProcessInd" target="_blank">
+        <i class="fa fa-twitter" aria-hidden="true" style='width:40px;'></i>
+      </a>
+      <a href="https://www.linkedin.com/company-beta/22283615/" target="_blank">
+        <i class="fa fa-linkedin" aria-hidden="true" style='width:40px;'></i>
+      </a>
+    </div>
+    <div class="copyright" style="color:#adabab;padding:10px;">
       Copyright © 2017 RFQPARTS.net, All Rights Reserved.<br>
     </div>
   </footer>

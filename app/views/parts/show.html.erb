@@ -10,6 +10,7 @@
   <%= stylesheet_link_tag 'external_main' %>
   <%= stylesheet_link_tag 'external_custom' %>
   <%= stylesheet_link_tag 'external_jquery-ui' %>
+  <%= stylesheet_link_tag 'external_font_awesome' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 </head>
@@ -19,7 +20,10 @@
       <div class="large-12 columns">
         <nav class="top-bar" data-topbar="" role="navigation">
           <section class="top-bar-section">
-            <div style="display: inline-block;font-size:24px;padding:10px;">RFQPARTS.NET</div>
+            <a href="http://<%= @site_domain %>" class='brand-link'>
+              <div style="display: inline-block;font-size:30px;padding:10px; font-family: 'RobotoSlab';font-weight: bold;">RFQ Parts</div>
+            </a>
+            <img src="/assets/hamburger.png" style='float: right; width: 40px; margin: 19px;' class='hamburger-nav'>
             <ul class="right main-nav">
               <li class="">
                 <a href="http://<%= @site_domain %>" target="_self" class="<%= 'active' if @home_tab %>">Home</a>
@@ -72,7 +76,7 @@
               <div class="row" style="overflow-x: hidden;" >
                 <div id="rfq-slider-area" class="large-18 columns">
                 <div class="medium-4 columns">
-                  <img src=<%= @part.image_url %> alt="Placeholder Image" style="float:left;width:400px;height:400px;" />
+                  <img src=<%= @part.image_url %> alt="Placeholder Image" style="float:left;width:400px;height:350px;" />
                 </div>
                 <div class="medium-4 columns">
                   <div class="copy copy-single">
@@ -248,7 +252,18 @@
   </div>
 
   <footer class="t-footer" >
-    <div class="copyright">
+    <div class="share-links" style='text-align:center;font-size:30px;padding:20px;'>
+      <a href="https://www.facebook.com/ProcessIndustrialSupply/" target="_blank">
+        <i class="fa fa-facebook" aria-hidden="true" style='width:40px;'></i>
+      </a>
+      <a href="https://twitter.com/ProcessInd" target="_blank">
+        <i class="fa fa-twitter" aria-hidden="true" style='width:40px;'></i>
+      </a>
+      <a href="https://www.linkedin.com/company-beta/22283615/" target="_blank">
+        <i class="fa fa-linkedin" aria-hidden="true" style='width:40px;'></i>
+      </a>
+    </div>
+    <div class="copyright" style="color:#adabab;padding:10px;">
       Copyright © 2017 RFQPARTS.net, All Rights Reserved.<br>
     </div>
   </footer>
@@ -281,6 +296,11 @@
     });
   </script>
   <script type='text/javascript'>
+      $(document).ready(function(){
+        $('.hamburger-nav').click(function(){
+          $('.top-bar .top-bar-section .right.main-nav').slideToggle();
+        });
+      });
       /* attach a submit handler to the form */
       $("#lead_form").submit(function(event) {
         console.log('submitting')

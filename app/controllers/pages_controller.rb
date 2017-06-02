@@ -11,6 +11,7 @@ class PagesController < ApplicationController
 
   def manufacturers
     @manufacturers_tab = true
+    @manufacturers = Manufacturer.search(params[:search]).paginate(:page => params[:page], :per_page => 20)
     render layout: false
   end
 end

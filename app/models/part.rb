@@ -29,7 +29,7 @@ class Part < ApplicationRecord
 
   def self.search(search)
     if search
-      where('lower(part_number) LIKE ? OR lower(part_type) LIKE ? OR lower(description) like ? OR lower(manufacturer) like ?', "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%")
+      where('lower(part_number) LIKE ? OR lower(part_type) LIKE ? OR lower(description) like ? OR lower(manufacturer) like ?', "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%").order('part_number ASC')
     else
       order('part_number ASC')
     end

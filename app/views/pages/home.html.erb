@@ -18,7 +18,9 @@
       <div class="large-12 columns">
         <nav class="top-bar" data-topbar role="navigation">
           <section class="top-bar-section">
-            <div style="display: inline-block;font-size:24px;padding:10px; font-family: 'RobotoSlab';font-weight: bold;">RFQ Parts</div>
+            <a href="http://<%= @site_domain %>" class='brand-link'>
+              <div style="display: inline-block;font-size:30px;padding:10px; font-family: 'RobotoSlab';font-weight: bold;">RFQ Parts</div>
+            </a>
             <img src="/assets/hamburger.png" style='float: right; width: 40px; margin: 19px;' class='hamburger-nav'>
             <ul class="right main-nav">
               <li class="">
@@ -57,7 +59,7 @@
 
       <div class="row">
         <div class="large-12 columns">
-          <h1 class="banner-title">Header Tagline that stands out!</h1>               
+          <h1 class="banner-title">Supplying companies with the products they need</h1>               
           <div class="banner-tab" role="tabpanel">
             <div class="tabs-content">
               
@@ -67,7 +69,7 @@
                     <div class="form-icon">
                       <i class="icon icon-search"></i>
                     </div>
-                    <%= text_field_tag :search, params[:search], {class: 'search-input', id: 'searchProduct', placeholder: "Search products"} %>
+                    <%= text_field_tag :search, params[:search], {class: 'search-input', id: 'searchProduct', placeholder: "Search our inventory"} %>
                     <button onclick="" class="btn hide-for-small-down">Search</button>
                     <button onclick="" class="btn hide-for-medium-up">GO</button>
                   </div>
@@ -81,7 +83,18 @@
   </div>
   
   <footer class="t-footer" >
-    <div class="copyright">
+    <div class="share-links" style='text-align:center;font-size:30px;padding:20px;'>
+      <a href="https://www.facebook.com/ProcessIndustrialSupply/" target="_blank">
+        <i class="fa fa-facebook" aria-hidden="true" style='width:40px;'></i>
+      </a>
+      <a href="https://twitter.com/ProcessInd" target="_blank">
+        <i class="fa fa-twitter" aria-hidden="true" style='width:40px;'></i>
+      </a>
+      <a href="https://www.linkedin.com/company-beta/22283615/" target="_blank">
+        <i class="fa fa-linkedin" aria-hidden="true" style='width:40px;'></i>
+      </a>
+    </div>
+    <div class="copyright" style="color:#adabab;padding:10px;">
       Copyright © 2017 RFQPARTS.net, All Rights Reserved.<br>
     </div>
   </footer>

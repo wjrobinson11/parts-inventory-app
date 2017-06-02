@@ -13,4 +13,12 @@ class Manufacturer < ApplicationRecord
   has_many :parts
 
   validates :name, uniqueness: true
+
+  def self.search(search)
+    if search
+      where('lower(name) LIKE ?', "%#{search.downcase}%").order('name ASC')
+    else
+      order('name ASC')
+    end
+  end
 end

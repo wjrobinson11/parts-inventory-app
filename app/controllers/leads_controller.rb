@@ -22,8 +22,7 @@ class LeadsController < ApplicationController
     @lead = Lead.new(lead_params)
     respond_to do |format|
       if @lead.save
-        #recipients = ['wes@keystacksolutions.com', 'devery@keystacksolutions.com', 'sales@processindustrialsupply.com']
-        recipients = ['wes@keystacksolutions.com']
+        recipients = ['wes@keystacksolutions.com', 'devery@keystacksolutions.com', 'sales@processindustrialsupply.com']
         recipients.each do |recipient|
           mg_client = Mailgun::Client.new 'key-47d57355b203f2c259f56868c58ff127'
           message_params = {

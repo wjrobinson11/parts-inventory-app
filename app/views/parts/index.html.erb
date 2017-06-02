@@ -40,7 +40,7 @@
         <td><%= part.specs.present? ? 'yes' : 'no' %></td>
         <td><a href='<%= part.pdf_url %>' target="_blank"><%= 'View' if part.pdf_url %></a></td>
         <td>
-          <%= link_to 'Show', "http://#{part.part_number}.#{@site_domain}", target: '_blank' %>
+          <%= link_to 'Show', "http://#{part.subdomain}.#{@site_domain}", target: '_blank' %>
           <%= link_to 'Edit', edit_part_path(part) %>
           <%= link_to 'Delete', part, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601182349) do
+ActiveRecord::Schema.define(version: 20170602061112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,8 +48,13 @@ ActiveRecord::Schema.define(version: 20170601182349) do
     t.datetime "updated_at",        null: false
     t.string   "pdf_url"
     t.text     "features"
+    t.string   "subdomain"
+    t.string   "backup_image_url"
+    t.index ["description"], name: "index_parts_on_description", using: :btree
     t.index ["manufacturer"], name: "index_parts_on_manufacturer", using: :btree
     t.index ["part_number"], name: "index_parts_on_part_number", using: :btree
+    t.index ["part_type"], name: "index_parts_on_part_type", using: :btree
+    t.index ["subdomain"], name: "index_parts_on_subdomain", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

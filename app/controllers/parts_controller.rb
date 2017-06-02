@@ -76,7 +76,7 @@ class PartsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_part
       @part = Part.find_by(id: params[:id])
-      @part ||= Part.where('lower(part_number) = ?', request.subdomain.downcase).last
+      @part ||= Part.where('lower(subdomain) = ?', request.subdomain.downcase).last
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

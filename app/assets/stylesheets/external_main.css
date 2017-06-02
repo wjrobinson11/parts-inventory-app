@@ -8117,7 +8117,7 @@ body {
 }
 
 #header-bar{
-    background:#1b1b1b;padding:10px;
+    background:#333333;padding:10px;
 }
 
 #header-bar h2{
@@ -8129,7 +8129,7 @@ body {
 div#manufacturer-search, #product-search{
     position: relative;
     float:right;
-    margin-top:10px;
+    margin-top:6px;
     width:40%
 }
 
@@ -8139,10 +8139,16 @@ div#manufacturer-search, #product-search{
         float:none;
         width:95%
     }
+    #header-bar {
+        padding-bottom: 14px;
+    }
+    #header-bar .row {
+        text-align: center;
+    }
 
     #product-search input {
         height: 40px;
-        padding-left: 60px;
+        padding-left: 50px;
         border-radius: 100px;
         font-size: 1em;
         margin-bottom: 0px;
@@ -8178,7 +8184,7 @@ div#manufacturer-search, #product-search{
 
 div#manufacturer-search input , #product-search input {
     height: 40px;
-    padding-left: 60px;
+    padding-left: 40px;
     border-radius: 100px;
     font-size: 1em;
     margin-bottom: 0px;
@@ -8897,12 +8903,8 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
 .t-footer {
     position: relative;
     z-index: 2;
-    padding-top: 100px;
-    padding-bottom: 100px !important;
     background-color: #1e1e21;
     color: #ada7a7 !important;
-    padding-left: 30px !important;
-    padding-right: 30px !important;
 }
 .copyright {
     border-top: 1px solid #29292e;
@@ -9000,8 +9002,6 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
     padding-bottom: 50px;
 }
 .copyright {
-    margin-top: 20px;
-    padding-top: 30px;
 }
 .form-request-quote {
     padding-right: 0;
@@ -9025,7 +9025,6 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
     padding-left: 50px;
 }
 .t-footer {
-    padding-top: 150px;
 }
 .block {
     padding-top: 50px;
@@ -9038,8 +9037,6 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
 .product-item {
     width: 33%}
 .t-footer {
-    padding-top: 55px;
-    padding-bottom: 55px;
 }
 .widget {
     text-align: left;
@@ -9066,7 +9063,6 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
     display: none;
 }
 .t-footer {
-    padding-top: 140px;
     padding-bottom: 0;
 }
 .footer-inner {
@@ -9108,10 +9104,13 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
 
 @media(max-width:642px) {
     .banner {
-        height: 500px !important;
+        height: 600px !important;
     }
     header.t-header {
      position:relative !important;
+    }
+    .manufacturer-header{
+        display:none;
     }
     .main{
         margin-top: 0px;
@@ -9163,6 +9162,13 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
 
 #contact-form-panel{
     display: block;
+}
+
+.brand-link {
+    color: #2c3e50;
+}
+.brand-link:hover {
+    color: #2c3e50;
 }
 
 #form-panel input{
