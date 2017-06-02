@@ -39,7 +39,7 @@
               </li>
               <li class="">
                 <a style="color:#2c3e50;" href="#" target="_self">
-                  (214) 775-0025
+                  844 RFQ-PART (1-844-737-7278)
                 </a>
               </li>
             </ul>
@@ -76,7 +76,7 @@
               <div class="row" style="overflow-x: hidden;" >
                 <div id="rfq-slider-area" class="large-18 columns">
                 <div class="medium-4 columns">
-                  <img src=<%= @part.image_url %> alt="Placeholder Image" style="float:left;width:400px;height:350px;" />
+                  <img src=<%= @part.image_url %> alt="Placeholder Image" style="float:left;" />
                 </div>
                 <div class="medium-4 columns">
                   <div class="copy copy-single">
@@ -268,33 +268,62 @@
     </div>
   </footer>
 
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('#rfq-button').click(function(){
-
-        if( !$(this).hasClass('open') ){
-          $('#rfq-slider-area').animate({
-            marginLeft: "-50%"
-          },400);
-          $('#form-panel').show();
-          $(this)
-            .addClass("open")
-            .html("Back to product image");
-        }else{
-          $('#rfq-slider-area').animate({
-            marginLeft: "0%"
-          },400);
-          setTimeout(function(){
-            $('#form-panel').hide();
-          },400)
-          $(this)
-            .removeClass("open")
-            .html("Request for Quote");
-        }
-        
-      });
-    });
-  </script>
+<script type="text/javascript">
+/* * jQuery throttle / debounce - v1.1 - 3/7/2010
+ * http://benalman.com/projects/jquery-throttle-debounce-plugin/
+ * 
+ * Copyright (c) 2010 "Cowboy" Ben Alman
+ * Dual licensed under the MIT and GPL licenses.
+ * http://benalman.com/about/license/
+ */
+(function(b,c){var $=b.jQuery||b.Cowboy||(b.Cowboy={}),a;$.throttle=a=function(e,f,j,i){var h,d=0;if(typeof f!=="boolean"){i=j;j=f;f=c}function g(){var o=this,m=+new Date()-d,n=arguments;function l(){d=+new Date();j.apply(o,n)}function k(){h=c}if(i&&!h){l()}h&&clearTimeout(h);if(i===c&&m>e){l()}else{if(f!==true){h=setTimeout(i?k:l,i===c?e-m:e)}}}if($.guid){g.guid=j.guid=j.guid||$.guid++}return g};$.debounce=function(d,e,f){return f===c?a(d,e,false):a(d,f,e!==false)}})(this);
+        $(document).ready(function(){
+            $(window).resize($.debounce(250,function(){
+                
+                console.log('test')
+                $('#rfq-slider-area').animate({
+                    marginLeft: "0%"
+                },400);
+                setTimeout(function(){
+                    $('#form-panel').hide();
+                },400);
+                $("#rfq-button")
+                    .removeClass("open")
+                    .html("Request for Quote");
+            }));
+            $('#rfq-button').click(function(){
+                if( !$(this).hasClass('open') ){
+                    $('#form-panel').show();
+                    
+                    if( window.innerWidth < 1026 ){
+                        $('html,body').animate({
+                            scrollTop: $('#form-panel').offset().top - 20
+                        },80);
+                    }else{
+                        $('#rfq-slider-area').animate({
+                            marginLeft: "-50%"
+                        },400);
+                        $('#form-panel').show();
+                        $(this)
+                            .addClass("open")
+                            .html("Back to product image");
+                    }
+                    
+                }else{
+                    $('#rfq-slider-area').animate({
+                        marginLeft: "0%"
+                    },400);
+                    setTimeout(function(){
+                        $('#form-panel').hide();
+                    },400)
+                    $(this)
+                        .removeClass("open")
+                        .html("Request for Quote");
+                }
+                
+            });
+        });
+    </script>
   <script type='text/javascript'>
       $(document).ready(function(){
         $('.hamburger-nav').click(function(){

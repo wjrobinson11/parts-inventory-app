@@ -5,7 +5,7 @@ arr.each do |el|
 end
 # Populate subdomains
 parts = Part.where('subdomain is null').where('id > ?', 300000).to_a;
-Part.where('subdomain is null').where('id < ?', 300000).find_in_batches do |group|
+Part.where('subdomain is null').where('id > ?', 300000).find_in_batches do |group|
   group.each do |part|
     puts "#{part.id} of #{703000}"
     begin
@@ -16,7 +16,7 @@ Part.where('subdomain is null').where('id < ?', 300000).find_in_batches do |grou
   end
 end
 # update images
-Part.where('backup_image_url is null').where('id < ?', 300000).find_in_batches do |group|
+Part.where('backup_image_url is null').where('id >= ?', 300000).find_in_batches do |group|
   group.each do |part|
     part.update!(
       backup_image_url: part.image_url
