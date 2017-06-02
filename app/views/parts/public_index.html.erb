@@ -55,10 +55,8 @@
               <i class="icon icon-search"></i>
             </div>
             <%= form_tag "http://#{@site_domain}/products", :method => 'get', :id => "parts_search" do %>
-              <p>
-                <%= text_field_tag :search, params[:search], {class: 'search-input', id: 'searchProduct', placeholder: "Search products"} %>
-                <%= button_tag "Search", :name => nil, class: 'btn' %>
-              </p>
+              <%= text_field_tag :search, params[:search], {class: 'search-input', id: 'searchProduct', placeholder: "Search products"} %>
+              <%= button_tag "Search", :name => nil, class: 'btn' %>
             <% end %>
           </div>
         </div>
@@ -76,10 +74,10 @@
       <div class="medium-12 columns">
         <%- @parts.each do |part| %>
           <div class="product">
-            <a href="">
+            <a href="http://<%= part.part_number.downcase.gsub(' ', '-') %>.<%= @site_domain %>">
               <div class="row">
                 <div class="small-4 columns">
-                  <img src="images/placeholder.png"  style="height:80px" alt="">
+                  <img src="<%= part.image_url %>"  style="height:80px" alt="">
                 </div>
                 <div class="small-8 columns">
                   <h3 class="title"><%= part.part_number %></h3>
