@@ -3905,8 +3905,6 @@ select {
     -webkit-appearance: none!important;
     -webkit-border-radius: 0;
     background-color: #fafafa;
-    background-image: url(data:image/svg+xml;
-    base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+);
     background-position: 100% center;
     background-repeat: no-repeat;
     border: 1px solid #ccc;
@@ -7571,7 +7569,7 @@ a {
     bottom: 20px;
     width: 40px;
     height: 40px;
-    background-image: url("/Content/d6.industrialnet/images/icon-top.png");
+    
     background-repeat: no-repeat;
     background-position: center;
     display: none;
@@ -7587,7 +7585,7 @@ a {
     height: 24px;
     margin-top: 41px;
     margin-bottom: 40px;
-    background-image: url("/Content/d6.industrialnet/images/brand.png");
+    
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -7600,7 +7598,7 @@ a {
     height: 80px;
     margin-top: 18px;
     margin-left: 90px;
-    background-image: url("/Content/d6.industrialnet/images/gid-brand.png");
+    
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -7913,7 +7911,7 @@ body {
     padding-top: 100px;
     padding-bottom: 100px;
     background-color: #eee;
-    background-image: url("/Content/d6.industrialnet/images/banner.jpg");
+    
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -8009,23 +8007,23 @@ body {
     background-size: cover;
 }
 .banner-img-first {
-    background-image: url("/Content/d6.industrialnet/images/banner-1.jpg");
+    
 }
 .banner-img-second {
-    background-image: url("/Content/d6.industrialnet/images/banner-2.jpg");
+    
 }
 .banner-img-third {
-    background-image: url("/Content/d6.industrialnet/images/banner-3.jpg");
+    
 }
 .banner-manufacturer {
-    background-image: url("/Content/d6.industrialnet/images/banner-manufacturer.jpg");
+    
 }
 .banner-manufacturer:after {
     position: absolute;
     opacity: .7;
 }
 .banner-products {
-    background-image: url("/Content/d6.industrialnet/images/banner-products.jpg");
+    
     background-position: bottom;
 }
 .banner-products:after {
@@ -8033,7 +8031,7 @@ body {
     opacity: .7;
 }
 .banner-services {
-    background-image: url("/Content/d6.industrialnet/images/banner-services.jpg");
+    
 }
 .banner-services:after {
     position: absolute;
@@ -8042,7 +8040,7 @@ body {
 .banner-contact {
     padding-top: 200px;
     padding-bottom: 200px;
-    background-image: url("/Content/d6.industrialnet/images/banner-contact.jpg");
+    
 }
 .banner-contact:after {
     position: absolute;
@@ -8436,7 +8434,7 @@ textarea.form-control {
     padding: 10px;
 }
 .group-about {
-    background-image: url("/Content/d6.industrialnet/images/bg-pattern.jpg");
+    
     background-repeat: vrepeat;
     background-position: center;
 }
@@ -8444,22 +8442,22 @@ textarea.form-control {
     width: 100%;
     height: 440px;
     background-color: #eee;
-    background-image: url("/Content/d6.industrialnet/images/home-1.jpg");
+    
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 .featured-img-secondary {
-    background-image: url("/Content/d6.industrialnet/images/home-2.jpg");
+    
 }
 .featured-img-services-1 {
-    background-image: url("/Content/d6.industrialnet/images/services-1.jpg");
+    
 }
 .featured-img-services-2 {
-    background-image: url("/Content/d6.industrialnet/images/services-2.jpg");
+    
 }
 .featured-img-services-3 {
-    background-image: url("/Content/d6.industrialnet/images/services-3.jpg");
+    
 }
 .featured-content {
     max-width: 550px;
@@ -8877,8 +8875,6 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
     color: gray;
     height: 9px;
     width: 10px;
-    background: url(data:image/svg+xml;
-    base64, PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMTAgOSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAgOSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8cGF0aCBmaWxsPSIjRDlEOUQ4IiBkPSJNNCw2LjdDMy42LDYuMywzLjUsNi4xLDMuMSw1LjdDMi42LDUuMiwyLDQuNiwxLjUsNC4xYy0wLjgtMC44LTIsMC40LTEuMiwxLjJjMC45LDAuOSwxLjksMS45LDIuOCwyLjgNCgkJYzAuNywwLjcsMS4zLDEsMiwwQzYuNyw2LDguMywzLjcsOS44LDEuNUMxMC41LDAuNSw5LTAuMyw4LjMsMC42bDAsMEM2LjcsMi45LDUuNyw0LjQsNCw2LjciLz4NCjwvZz4NCjwvc3ZnPg0K);
 }
 .sod_select.no_highlight .sod_option.selected {
     font-weight: 300;
@@ -9124,7 +9120,7 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
 .title-area .name a {
     margin-top: 10px;
     margin-bottom: 0;
-    background-image: url("/Content/d6.industrialnet/images/brand.png");
+    
 }
 .top-bar-section ul li, .top-bar.expanded .title-area {
     background: none!important;
