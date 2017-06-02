@@ -6879,7 +6879,7 @@ ul.off-canvas-list li a:hover {
     -webkit-tap-highlight-color: transparent;
 }
 @media only screen and (min-width:40.063em) {
-    .move-right .exit-off-canvas: hover {
+    .move-right .exit-off-canvas:hover {
     background: rgba(255, 255, 255, .05);
 }
 }.move-left>.inner-wrap {
@@ -6906,7 +6906,7 @@ ul.off-canvas-list li a:hover {
     -webkit-tap-highlight-color: transparent;
 }
 @media only screen and (min-width:40.063em) {
-    .move-left .exit-off-canvas: hover {
+    .move-left .exit-off-canvas:hover {
     background: rgba(255, 255, 255, .05);
 }
 }.offcanvas-overlap .left-off-canvas-menu, .offcanvas-overlap .right-off-canvas-menu {
@@ -6933,7 +6933,7 @@ ul.off-canvas-list li a:hover {
     -webkit-tap-highlight-color: transparent;
 }
 @media only screen and (min-width:40.063em) {
-    .offcanvas-overlap .exit-off-canvas: hover {
+    .offcanvas-overlap .exit-off-canvas:hover {
     background: rgba(255, 255, 255, .05);
 }
 }.offcanvas-overlap-left .right-off-canvas-menu {
@@ -6960,7 +6960,7 @@ ul.off-canvas-list li a:hover {
     -webkit-tap-highlight-color: transparent;
 }
 @media only screen and (min-width:40.063em) {
-    .offcanvas-overlap-left .exit-off-canvas: hover {
+    .offcanvas-overlap-left .exit-off-canvas:hover {
     background: rgba(255, 255, 255, .05);
 }
 }.offcanvas-overlap-right .left-off-canvas-menu {
@@ -6987,7 +6987,7 @@ ul.off-canvas-list li a:hover {
     -webkit-tap-highlight-color: transparent;
 }
 @media only screen and (min-width:40.063em) {
-    .offcanvas-overlap-right .exit-off-canvas: hover {
+    .offcanvas-overlap-right .exit-off-canvas:hover {
     background: rgba(255, 255, 255, .05);
 }
 }.no-csstransforms .left-off-canvas-menu {
