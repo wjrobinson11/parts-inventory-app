@@ -19,7 +19,8 @@
       <div class="large-12 columns">
         <nav class="top-bar" data-topbar="" role="navigation">
           <section class="top-bar-section">
-            <div style="display: inline-block;font-size:24px;padding:10px;">RFQPARTS.NET</div>
+            <div style="display: inline-block;font-size:24px;padding:10px; font-family: 'RobotoSlab';font-weight: bold;">RFQ Parts</div>
+            <img src="/assets/hamburger.png" style='float: right; width: 40px; margin: 19px;' class='hamburger-nav'>
             <ul class="right main-nav">
               <li class="">
                 <a href="http://<%= @site_domain %>" target="_self" class="<%= 'active' if @home_tab %>">Home</a>
@@ -144,6 +145,9 @@
   <script type="text/javascript">   
     
     $(document).ready(function () {
+      $('.hamburger-nav').click(function(){
+        $('.top-bar .top-bar-section .right.main-nav').slideToggle();
+      });
       $('.banner').css({
         height:800
       });

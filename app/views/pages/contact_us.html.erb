@@ -18,7 +18,8 @@
       <div class="large-12 columns">
         <nav class="top-bar" data-topbar role="navigation">
           <section class="top-bar-section">
-            <div style="display: inline-block;font-size:24px;padding:10px;">RFQPARTS.NET</div>
+            <div style="display: inline-block;font-size:24px;padding:10px; font-family: 'RobotoSlab';font-weight: bold;">RFQ Parts</div>
+            <img src="/assets/hamburger.png" style='float: right; width: 40px; margin: 19px;' class='hamburger-nav'>
             <ul class="right main-nav">
               <li class="">
                 <a href="http://<%= @site_domain %>" target="_self" class="<%= 'active' if @home_tab %>">Home</a>
@@ -44,10 +45,10 @@
     </div>
   </header>
 
-    <div class="" style="background:#333;background:url('/assets/whole_akron_plant.jpg');background-size:cover;background-position:center center;height:200px;">
+    <div class="" style="background:#333;background:url('/assets/whole_akron_plant.jpg');background-size:cover;background-position:center center;height:300px;">
     
         <div class="row">
-            <h1 style="text-align: center;color:white;margin-top:100px;font-size: 4em">Contact Us</h1>
+            <h1 style="text-align: center;color:white;margin-top:130px;font-size: 4em">Contact Us</h1>
             <p style="margin-top:80px;color:white;font-size:28px;font-weight:200;text-align: center;">
             </p>
         </div>
@@ -147,6 +148,9 @@
         <script type="text/javascript">     
             
             $(document).ready(function () {
+                $('.hamburger-nav').click(function(){
+                  $('.top-bar .top-bar-section .right.main-nav').slideToggle();
+                });
                 $('.banner').css({
                     height:800
                 });

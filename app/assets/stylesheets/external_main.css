@@ -29,6 +29,15 @@ audio:not([controls]) {
     font-style: normal;
 }
 
+@font-face { 
+    font-family: 'RobotoSlab';
+    src:url('RobotoSlab-Regular.ttf');
+    src:url('RobotoSlab-Regular.ttf?#iefix') format('embedded-opentype'),
+    url('RobotoSlab-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 i[class^="icon-"], i[class*=" icon-"] { font-family: FontAwesome; font-weight: normal; font-style: normal; text-decoration: inherit; -webkit-font-smoothing: antialiased; display: inline; width: auto; height: auto; vertical-align: baseline; letter-spacing: normal; background-image: none; background-position: 0% 0%; background-repeat: repeat; margin-top: 0; }
 
@@ -8043,7 +8052,7 @@ body {
     position: relative;
     margin-top:100px;
     z-index: 2;
-    font-size: 70px;
+    font-size: 60px;
     color: #fff;
     text-align: center;
     font-family: Verdana, Geneva, sans-serif;
@@ -8889,8 +8898,11 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
     position: relative;
     z-index: 2;
     padding-top: 100px;
-    padding-bottom: 100px;
+    padding-bottom: 100px !important;
     background-color: #1e1e21;
+    color: #ada7a7 !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
 }
 .copyright {
     border-top: 1px solid #29292e;
@@ -9090,12 +9102,25 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
     padding: 20px;
 }
 }
+.hamburger-nav {
+    display: none;
+}
+
 @media(max-width:642px) {
+    .banner {
+        height: 500px !important;
+    }
     header.t-header {
      position:relative !important;
     }
     .main{
         margin-top: 0px;
+    }
+    .hamburger-nav {
+        display: block;
+    }
+    .top-bar .top-bar-section .right.main-nav {
+        display: none;
     }
 .title-area .name a {
     margin-top: 10px;
