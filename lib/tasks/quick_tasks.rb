@@ -5,18 +5,25 @@ arr.each do |el|
 end
 # Populate subdomains
 parts = Part.where('subdomain is null').where('id > ?', 300000).to_a;
-Part.where('subdomain is null').where('id > ?', 300000).find_in_batches do |group|
+Part.where('subdomain is null').where('id < ?', 300000).find_in_batches do |group|
   group.each do |part|
     puts "#{part.id} of #{703000}"
-    part.update!(subdomain: part.part_number.gsub(' ','').downcase)
+    begin
+      part.update!(subdomain: part.part_number.gsub(' ','').downcase)
+    rescue => e
+      part.destroy if !part.valid?
+    end
   end
 end
 # update images
-Part.all.each do |part|
-  part.update!(
-    backup_image_url: part.image_url
-  )
+Part.where('backup_image_url is null').where('id < ?', 300000).find_in_batches do |group|
+  group.each do |part|
+    part.update!(
+      backup_image_url: part.image_url
+    )
+    part.update!(image_url: 'http://res.cloudinary.com/duzt9avdv/image/upload/v1496386503/vtfommkbh8hwyaf0rnp0.png')
+  end
 end
-Part.update_all(image_url: 'http://res.cloudinary.com/duzt9avdv/image/upload/v1496386503/vtfommkbh8hwyaf0rnp0.png')
+# Part.update_all(image_url: 'http://res.cloudinary.com/duzt9avdv/image/upload/v1496386503/vtfommkbh8hwyaf0rnp0.png')
 
 # update email for new leads
