@@ -4,7 +4,8 @@ arr.each do |el|
   Manufacturer.create!(name: el.first, image_url: el.last)
 end
 # Populate subdomains
-Part.all.each do |part|
+Part.all.each_with_index do |part,index|
+  puts "#{index} of #{703000}"
   part.update!(subdomain: part.part_number.gsub(' ','').downcase)
 end
 # update images
