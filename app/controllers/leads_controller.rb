@@ -28,7 +28,7 @@ class LeadsController < ApplicationController
           message_params = {
             from: 'leads@keystack.biz',
             to:   recipient,
-            subject: "New lead #{@lead.id + 1398}from #{@lead.origin}",
+            subject: "New lead #{@lead.id + 1398} from #{@lead.origin}",
             text:    "Lead Number: #{@lead.id + 1398}\nName: #{@lead.name}\nEmail: #{@lead.email}\nPhone: #{@lead.phone}\nCompany: #{@lead.company}\nPart: #{@lead.part.try(:part_number)}\nQuantity: #{@lead.quantity}\nSite: #{@lead.origin}\nComments from lead: #{@lead.comments}"
           }
           mg_client.send_message('mg.keystack.biz', message_params) rescue true
