@@ -11,6 +11,8 @@
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
+<%= link_to '+ New part', '/parts/new', style: 'position: absolute;' %>
+
 <div class='pagination-container'>
   <%= will_paginate @parts %>
 </div>

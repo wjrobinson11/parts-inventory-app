@@ -16,7 +16,7 @@ Part.where('subdomain is null').where('id > ?', 300000).find_in_batches do |grou
   end
 end
 # update images
-Part.where('backup_image_url is null').where('id >= ?', 300000).find_in_batches do |group|
+Part.where('backup_image_url is null').find_in_batches do |group|
   group.each do |part|
     part.update!(
       backup_image_url: part.image_url
