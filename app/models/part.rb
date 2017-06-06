@@ -26,6 +26,9 @@ class Part < ApplicationRecord
   validates :manufacturer, presence: true
   validates :description, presence: true
 
+  before_save :set_subdomain
+  before_save :set_image_url
+
 
   def self.search(search)
     if search
@@ -34,4 +37,13 @@ class Part < ApplicationRecord
       order('part_number ASC')
     end
   end
+
+  def set_subdomain
+    self.subdomain = part_number.gsub(/[^0-9a-z-]/i, '').downcase
+  end
+
+  def set_image_url
+    self.image_url ||= 'http://res.cloudinary.com/duzt9avdv/image/upload/v1496386503/vtfommkbh8hwyaf0rnp0.png'
+  end
 end
+
