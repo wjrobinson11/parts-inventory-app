@@ -52,7 +52,7 @@
           <%= f.label :pdf, {class: 'col-lg-3 control-label'} %>
           <div class='col-lg-9'>
 
-            <a href="<%= @part.pdf_url %>" target="_blank">Download PDF</a>
+            <%= link_to(@part.pdf_url, target: '_blank') if @part.pdf_url%>
             <%= f.file_field :pdf, {class: 'form-control'} %>
           </div>
         </div>

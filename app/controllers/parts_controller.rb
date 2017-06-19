@@ -31,7 +31,7 @@ class PartsController < ApplicationController
 
     respond_to do |format|
       if @part.save
-        format.html { redirect_to '/parts', notice: 'Part was successfully created.' }
+        format.html { redirect_to "/parts?search=#{@part.part_number}", notice: 'Part was successfully created.' }
         format.json { render :show, status: :created, location: @part }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class PartsController < ApplicationController
     params[:part][:pdf_url] = Cloudinary::Uploader.upload(params[:part][:pdf])["url"] if params[:part][:pdf]
     respond_to do |format|
       if @part.update(part_params)
-        format.html { redirect_to '/parts', notice: 'Part was successfully updated.' }
+        format.html { redirect_to "/parts?search=#{@part.part_number}", notice: 'Part was successfully updated.' }
         format.json { render :show, status: :ok, location: @part }
       else
         format.html { render :edit }
