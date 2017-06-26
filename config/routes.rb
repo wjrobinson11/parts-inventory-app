@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/products', to: 'parts#public_index'
   get '/contact_us', to: 'pages#contact_us'
   get '/manufacturers', to: 'pages#manufacturers'
+  get '/about', to: 'pages#about'
   resources :leads, only: [:create]
 
   constraints subdomain: ['', 'www'] do
