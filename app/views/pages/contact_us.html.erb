@@ -213,7 +213,7 @@
 
         /* Alerts the results */
         posting.done(function( data ) {
-          ga( 'send', 'submit', 'form', 'Request For Quote', 'Contact Form' )
+          ga( 'send', 'form', 'CONTACT', 'Contact Us Form' , 2)
           if(typeof(data.id) !== 'undefined'){
             $('#form-button').html("<p style='color:#26A65B;font-weight:bold;'>Thank you for your request we will reach out to you shortly.</p>")
             $('#errors').html('')
