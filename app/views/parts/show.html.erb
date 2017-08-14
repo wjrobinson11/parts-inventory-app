@@ -375,7 +375,7 @@
 
         /* Alerts the results */
         posting.done(function( data ) {
-            ga( 'send', 'event', 'RFQ', '<%= @part.part_number %>' , 5)
+            ga( 'send', 'event', 'RFQ', 'submit', '<%= @part.part_number %>' , 5)
           console.log(data)
           if(typeof(data.id) !== 'undefined'){
             $('#form-button').html("<p style='color:#26A65B;font-weight:bold;'>Thank you for your request we will reach out to you shortly.</p>")
