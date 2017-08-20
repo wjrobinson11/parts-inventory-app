@@ -31,8 +31,8 @@ class Part < ApplicationRecord
 
 
   def self.search(search)
-    _search = search.gsub(/[^a-z0-9\s]/i, ' ')
     if search
+      _search = search.gsub(/[^a-z0-9\s]/i, ' ')
       where('lower(part_number) LIKE ? OR lower(part_type) like ? OR lower(manufacturer) like ?', "%#{_search.downcase}%", "%#{_search.downcase}%", "%#{_search.downcase}%").order('part_number ASC')
     else
       order('part_number ASC')
