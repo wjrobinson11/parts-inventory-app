@@ -130,7 +130,33 @@
   </script>
 
   <script type="text/javascript">   
-    
+    // Gets a reference to the form element, assuming
+    // it contains the id attribute "signup-form".
+    var form = document.getElementById('product-search');
+
+    // Adds a listener for the "submit" event.
+    form.addEventListener('submit', function(event) {
+
+      // Prevents the browser from submitting the form
+      // and thus unloading the current page.
+      event.preventDefault();
+      var searchTerm = $('#productSearch');
+      console.log(searchTerm)
+      // Sends the event to Google Analytics and
+      // resubmits the form once the hit is done.
+      ga(
+        'send',
+        hitType: 'event',
+        eventCategory: 'Product Search',
+        eventAction: 'submit',
+        eventLabel: searchTerm,
+        eventValue: 1,
+        hitCallback: function() {
+          form.submit();
+        }
+      );
+    });
+
     $(document).ready(function () {
       $('.hamburger-nav').click(function(){
         $('.top-bar .top-bar-section .right.main-nav').slideToggle();
