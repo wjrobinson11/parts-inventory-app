@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "recaptcha", require: "recaptcha/rails"
 gem 'will_paginate', '~> 3.1.0'
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'devise'
@@ -14,6 +15,7 @@ gem 'rails', '~> 5.0.1'
 gem 'annotate'
 # Use postgres as the database for Active Record
 gem 'pg'
+gem 'figaro'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'pry-rails'

@@ -19,6 +19,9 @@ audio:not([controls]) {
 [hidden], template {
     display: none;
 }
+.g-recaptcha {
+    margin-bottom: 15px;
+}
 
 @font-face { 
     font-family: 'FontAwesome';

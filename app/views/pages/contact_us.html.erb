@@ -96,6 +96,8 @@
                           <label style="padding:5px">Comments:</label>
                           <textarea name="comments" cols="40" rows="10"></textarea>
                         </div>
+                        <div class="g-recaptcha" data-sitekey="6Lf22C4UAAAAAL1e-0Ek0pIGAHTJedWe-DTBA93l"></div>
+                        <%= recaptcha_tags %>
                         <div id='form-button'>
                           <button type="submit" id="rfq-button" class="btn-sm">Submit</div>
                           <p id='errors' style='color:red; font-weight:bold;'></p>
@@ -164,7 +166,15 @@
             }
         </script>
         <script type="text/javascript">     
-            
+            function objectifyForm(formArray) {//serialize data function
+
+              var returnArray = {};
+              for (var i = 0; i < formArray.length; i++){
+                returnArray[formArray[i]['name']] = formArray[i]['value'];
+              }
+              return returnArray;
+            }
+
             $(document).ready(function () {
                 $('.hamburger-nav').click(function(){
                   $('.top-bar .top-bar-section .right.main-nav').slideToggle();
@@ -198,18 +208,9 @@
             url = $form.attr( 'action' );
 
         /* Send the data using post with element id name and name2*/
-        var posting = $.post( url,
-          {
-            name: $('input[name="name"]').val(),
-            email: $('input[name="email"]').val(),
-            company: $('input[name="company"]').val(),
-            phone: $('input[name="phone"]').val(),
-            quantity: $('input[name="quantity"]').val(),
-            comments: $('textarea[name="comments"]').val(),
-            part_id: $('input[name="part_id"]').val(),
-            authenticity_token: $('input[name="authenticity_token"]').val(),
-            origin: document.location.hostname
-          } );
+        var data = objectifyForm($form.serializeArray());
+        data.origin = document.location.hostname
+        var posting = $.post( url, data );
 
         /* Alerts the results */
         posting.done(function( data ) {

@@ -21,7 +21,7 @@ class LeadsController < ApplicationController
     @part = Part.find_by(id: params[:part_id])
     @lead = Lead.new(lead_params)
     respond_to do |format|
-      if @lead.save
+      if verify_recaptcha(model: @lead) && @lead.save
         recipients = ['wes@keystacksolutions.com', 'devery@keystacksolutions.com', 'sales@processindustrialsupply.com']
         recipients.each do |recipient|
           mg_client = Mailgun::Client.new 'key-47d57355b203f2c259f56868c58ff127'
@@ -32,7 +32,7 @@ class LeadsController < ApplicationController
             text:    "Lead Number: #{@lead.id + 1398}\nName: #{@lead.name}\nEmail: #{@lead.email}\nPhone: #{@lead.phone}\nCompany: #{@lead.company}\nPart: #{@lead.part.try(:part_number)}\nQuantity: #{@lead.quantity}\nSite: #{@lead.origin}\nComments from lead: #{@lead.comments}"
           }
           mg_client.send_message('mg.keystack.biz', message_params) rescue true
-        end
+        end if !Rails.env.development?
         format.json { render json: @lead, status: :created, location: @lead }
       else
         format.json { render json: @lead.errors, status: 200 }
