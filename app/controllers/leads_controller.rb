@@ -22,7 +22,7 @@ class LeadsController < ApplicationController
     @lead = Lead.new(lead_params)
     respond_to do |format|
       if verify_recaptcha(model: @lead) && @lead.save
-        recipients = ['wes@keystacksolutions.com', 'devery@keystacksolutions.com', 'sales@processindustrialsupply.com', 'thisisscottharris@gmail.com']
+        recipients = Rails.env.development? ? ['wes@keystacksolutions.com'] : ['wes@keystacksolutions.com', 'devery@keystacksolutions.com', 'sales@processindustrialsupply.com']
         recipients.each do |recipient|
           mg_client = Mailgun::Client.new 'key-47d57355b203f2c259f56868c58ff127'
           message_params = {
