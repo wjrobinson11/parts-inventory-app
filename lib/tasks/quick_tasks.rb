@@ -27,3 +27,14 @@ end
 # Part.update_all(image_url: 'http://res.cloudinary.com/duzt9avdv/image/upload/v1496386503/vtfommkbh8hwyaf0rnp0.png')
 
 # update email for new leads
+
+# Lead report
+# Lead Number Email Company Phone Part Number Quantity  Link  Submission Date
+start_date = 1.day.agoin_time_zone('Central Time (US & Canada)').beginning_of_month
+end_date = start_date.end_of_month
+leads = Lead.where(created_at: (start_date..end_date));
+data = leads.sort.map{|lead| [lead.id + 1398, lead.email, lead.company.gsub(',',''), lead.phone, lead.part.try(:part_number), lead.quantity, ("#{lead.part.part_number}.rfqparts.net" if lead.part), lead.created_at.in_time_zone('Central Time (US & Canada)').strftime('%m/%d/%y')]}
+data.each{|da| puts da.join(", ")}
+
+
+
