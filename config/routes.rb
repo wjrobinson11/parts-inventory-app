@@ -9,12 +9,12 @@ Rails.application.routes.draw do
     get '/', to: 'pages#home'
     resources :parts
   end
-  constraints subdomain: ['admin'] do
-    root to: 'parts#index'
-    devise_for :users
-    resources :parts
-    resources :leads, only: [:create, :index, :destroy]
-  end
+  # constraints subdomain: ['admin'] do
+  #   root to: 'parts#index'
+  #   devise_for :users
+  #   resources :parts
+  #   resources :leads, only: [:create, :index, :destroy]
+  # end
 
   root to: 'parts#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
