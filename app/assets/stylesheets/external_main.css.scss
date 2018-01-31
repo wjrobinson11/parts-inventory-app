@@ -890,7 +890,7 @@ td, th {
 }
 meta.foundation-version {
     font-family: "/ {
-     {
+    {
     VERSION;
 }
 }/"}meta.foundation-mq-small {
@@ -7971,7 +7971,7 @@ body {
     padding-top: 20px;
     padding-bottom: 15px;    
     background-color: #eee;
-    background:url('/assets/circuit.jpg');
+    background:image-url("circuit.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -9106,13 +9106,13 @@ table tbody td tr.alt, table tbody td tr.even, table tbody td tr:nth-of-type(eve
         height: 600px !important;
     }
     header.t-header {
-     position:relative !important;
+      position:relative !important;
     }
     .manufacturer-header{
-        display:none;
+      display:none;
     }
     .main{
-        margin-top: 0px;
+      margin-top: 0px;
     }
     .hamburger-nav {
         display: block;
