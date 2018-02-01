@@ -14,6 +14,8 @@ class Manufacturer < ApplicationRecord
 
   validates :name, uniqueness: true
 
+  default_scope -> {where(name: Part.pluck(:manufacturer).uniq)}
+
   def self.search(search)
     if search
       where('lower(name) LIKE ?', "%#{search.downcase}%").order('name ASC')

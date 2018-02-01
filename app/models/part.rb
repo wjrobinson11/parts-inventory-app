@@ -29,6 +29,7 @@ class Part < ApplicationRecord
   before_save :set_subdomain
   before_save :set_image_url
 
+  default_scope -> {where('id <= ?', 20214)}
 
   def self.search(search)
     if search
