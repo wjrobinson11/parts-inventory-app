@@ -12,6 +12,14 @@ class PartsController < ApplicationController
   # GET /parts/1
   # GET /parts/1.json
   def show
+    if @part.nil?
+      redirect_url = if Rails.env == 'development'
+        "http://www.#{request.domain}:#{request.port}/contact_us?part_number=#{request.subdomain}"
+      else
+        "http://www.#{request.domain}/contact_us?part_number=#{request.subdomain}"
+      end
+      return redirect_to redirect_url
+    end
     render layout: false
   end
 

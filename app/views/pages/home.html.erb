@@ -144,17 +144,17 @@
       console.log(searchTerm)
       // Sends the event to Google Analytics and
       // resubmits the form once the hit is done.
-      ga(
-        'send',
-        hitType: 'event',
-        eventCategory: 'Product Search',
-        eventAction: 'submit',
-        eventLabel: searchTerm,
-        eventValue: 1,
-        hitCallback: function() {
-          form.submit();
-        }
-      );
+      // ga(
+      //   'send',
+      //   hitType: 'event',
+      //   eventCategory: 'Product Search',
+      //   eventAction: 'submit',
+      //   eventLabel: searchTerm,
+      //   eventValue: 1,
+      //   hitCallback: function() {
+      //     form.submit();
+      //   }
+      // );
     });
 
     $(document).ready(function () {

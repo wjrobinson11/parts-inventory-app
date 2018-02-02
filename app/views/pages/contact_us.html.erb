@@ -21,7 +21,7 @@
             <a href="http://<%= @site_domain %>" class='brand-link'>
               <div style="display: inline-block;font-size:30px;padding:10px; font-family: 'RobotoSlab';font-weight: bold;">RFQ Parts</div>
             </a>
-            <img src="/assets/hamburger.png" style='float: right; width: 40px; margin: 19px;' class='hamburger-nav'>
+            <img src=<%=asset_path("hamburger.png")%> style='float: right; width: 40px; margin: 19px;' class='hamburger-nav'>
             <ul class="right main-nav">
               <li class="">
                 <a href="http://<%= @site_domain %>" target="_self" class="<%= 'active' if @home_tab %>">Home</a>
@@ -50,7 +50,7 @@
     </div>
   </header>
 
-    <div class="" style="background:#333;background:url('/assets/whole_akron_plant.jpg');background-size:cover;background-position:center center;height:300px;">
+    <div class="" style="background:#333;background:url(<%=asset_path('whole_akron_plant.jpg')%>);background-size:cover;background-position:center center;height:300px;">
     
         <div class="row">
             <h1 style="text-align: center;color:white;margin-top:130px;font-size: 4em">Contact Us</h1>
@@ -78,7 +78,7 @@
                       </a>
                   </p>
 
-                    <img src="/assets/map.png" />
+                    <img src=<%= asset_path("map.png")%> />
                 </div>
                 <p style="padding:10px;font-size: 18px;">If you are looking to contact our team or receive a quote please fill out this form and our team will get back to you within 24 Hours.</p>
             </div>
