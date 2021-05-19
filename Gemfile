@@ -17,7 +17,7 @@ gem 'annotate'
 gem 'pg'
 gem 'figaro'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 gem 'pry-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
